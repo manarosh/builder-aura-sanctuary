@@ -12,7 +12,11 @@ import {
   Building2,
   Filter,
   SlidersHorizontal,
-  ChevronDown
+  ChevronDown,
+  Sparkles,
+  Zap,
+  Heart,
+  Eye
 } from "lucide-react";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
@@ -21,7 +25,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-// Mock data for companies - organized like categories
+// Enhanced mock data for companies
 const companies = [
   {
     id: 1,
@@ -38,7 +42,9 @@ const companies = [
     services: ["Emergency Care", "Surgery", "Diagnostics", "Specialist Consultations"],
     isOpen: true,
     featured: true,
-    distance: "1.2 km"
+    distance: "1.2 km",
+    gradient: "from-blue-500 to-cyan-600",
+    responseTime: "2 hours"
   },
   {
     id: 2,
@@ -55,7 +61,9 @@ const companies = [
     services: ["Corporate Law", "Family Law", "Real Estate", "Immigration"],
     isOpen: true,
     featured: true,
-    distance: "0.8 km"
+    distance: "0.8 km",
+    gradient: "from-purple-500 to-pink-600",
+    responseTime: "1 hour"
   },
   {
     id: 3,
@@ -72,7 +80,9 @@ const companies = [
     services: ["House Cleaning", "Office Cleaning", "Deep Cleaning", "Window Cleaning"],
     isOpen: false,
     featured: false,
-    distance: "2.1 km"
+    distance: "2.1 km",
+    gradient: "from-green-500 to-emerald-600",
+    responseTime: "4 hours"
   },
   {
     id: 4,
@@ -89,7 +99,9 @@ const companies = [
     services: ["Fine Dining", "Private Events", "Catering", "Wine Tasting"],
     isOpen: true,
     featured: false,
-    distance: "0.5 km"
+    distance: "0.5 km",
+    gradient: "from-orange-500 to-red-600",
+    responseTime: "30 minutes"
   },
   {
     id: 5,
@@ -106,7 +118,9 @@ const companies = [
     services: ["Computer Repair", "Phone Repair", "Data Recovery", "IT Support"],
     isOpen: true,
     featured: false,
-    distance: "15.3 km"
+    distance: "15.3 km",
+    gradient: "from-indigo-500 to-blue-600",
+    responseTime: "3 hours"
   },
   {
     id: 6,
@@ -123,7 +137,9 @@ const companies = [
     services: ["Hair Styling", "Hair Coloring", "Manicure", "Facial Treatments"],
     isOpen: true,
     featured: false,
-    distance: "1.8 km"
+    distance: "1.8 km",
+    gradient: "from-pink-500 to-rose-600",
+    responseTime: "1 hour"
   },
   {
     id: 7,
@@ -140,7 +156,9 @@ const companies = [
     services: ["Engine Repair", "Brake Service", "Oil Change", "Tire Service"],
     isOpen: true,
     featured: true,
-    distance: "3.2 km"
+    distance: "3.2 km",
+    gradient: "from-gray-600 to-gray-800",
+    responseTime: "2 hours"
   },
   {
     id: 8,
@@ -157,7 +175,9 @@ const companies = [
     services: ["Gym Access", "Personal Training", "Group Classes", "Nutrition Coaching"],
     isOpen: true,
     featured: false,
-    distance: "0.9 km"
+    distance: "0.9 km",
+    gradient: "from-emerald-500 to-teal-600",
+    responseTime: "Immediate"
   },
   {
     id: 9,
@@ -174,7 +194,9 @@ const companies = [
     services: ["Property Sales", "Property Rentals", "Property Management", "Market Analysis"],
     isOpen: true,
     featured: true,
-    distance: "1.5 km"
+    distance: "1.5 km",
+    gradient: "from-violet-500 to-purple-600",
+    responseTime: "1 hour"
   }
 ];
 
@@ -245,34 +267,43 @@ export default function Companies() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30">
       <Header />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Discover Trusted Businesses</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Browse through {companies.length} verified companies and find the perfect service provider for your needs
+        {/* Creative Hero Section */}
+        <div className="text-center mb-16 relative">
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-full blur-3xl -z-10"></div>
+          
+          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-lg">
+            <Building2 className="w-5 h-5 text-primary animate-pulse" />
+            <span className="text-sm font-semibold text-gray-700">{companies.length} verified companies</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            Discover <span className="gradient-text">Trusted Businesses</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+            Browse through our curated collection of verified companies and find the perfect service provider for your needs
           </p>
 
-          {/* Search Bar */}
-          <Card className="max-w-4xl mx-auto">
-            <CardContent className="p-6">
+          {/* Enhanced Search Bar */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="glass-morphism p-6 rounded-3xl backdrop-blur-xl">
               <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                <div className="flex-1 relative group">
+                  <Search className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors" />
                   <Input
                     placeholder="Search companies, services, or categories..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 h-12"
+                    className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all"
                   />
                 </div>
-                <div className="flex-1 relative">
-                  <MapPin className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                <div className="flex-1 relative group">
+                  <MapPin className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors" />
                   <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-                    <SelectTrigger className="pl-10 h-12">
+                    <SelectTrigger className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -287,26 +318,29 @@ export default function Companies() {
                 <Button
                   variant="outline"
                   onClick={() => setShowFilters(!showFilters)}
-                  className="h-12 px-6"
+                  className="h-14 px-6 bg-white/80 backdrop-blur-sm border-0 shadow-md hover:shadow-lg transition-all"
                 >
-                  <SlidersHorizontal className="w-4 h-4 mr-2" />
+                  <SlidersHorizontal className="w-5 h-5 mr-2" />
                   Filters
                   <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${showFilters ? "rotate-180" : ""}`} />
                 </Button>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
 
         {/* Popular Searches */}
-        <div className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Popular Searches</h3>
-          <div className="flex flex-wrap gap-2">
+        <div className="mb-12">
+          <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+            <Sparkles className="w-5 h-5 mr-2 text-primary" />
+            Popular Searches
+          </h3>
+          <div className="flex flex-wrap gap-3">
             {popularSearches.map((search, index) => (
               <Badge
                 key={index}
                 variant="secondary"
-                className="cursor-pointer hover:bg-gray-200 transition-colors"
+                className="cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 py-2 px-4 text-sm bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg"
                 onClick={() => setSearchQuery(search)}
               >
                 {search}
@@ -316,16 +350,16 @@ export default function Companies() {
         </div>
 
         {/* Filters and Sort */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
-          <div>
-            <p className="text-gray-600">
-              Showing {sortedCompanies.length} companies
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl px-4 py-2 shadow-md">
+            <p className="text-gray-600 font-medium">
+              Showing <span className="text-primary font-bold">{sortedCompanies.length}</span> companies
             </p>
           </div>
           
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-48">
+              <SelectTrigger className="w-48 bg-white/80 backdrop-blur-sm border-0 shadow-md hover:shadow-lg transition-all">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -339,162 +373,175 @@ export default function Companies() {
           </div>
         </div>
 
-        {/* Companies Grid - Similar to Categories Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedCompanies.map((company) => (
-            <Card key={company.id} className="hover:shadow-medium transition-shadow group cursor-pointer">
+        {/* Enhanced Companies Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {sortedCompanies.map((company, index) => (
+            <div 
+              key={company.id} 
+              className="creative-card group hover:scale-105 transition-all duration-500"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <Link to={`/company/${company.id}`}>
-                <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-4">
-                    <img
-                      src={company.image}
-                      alt={company.name}
-                      className="w-16 h-16 rounded-lg object-cover"
-                    />
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-2 mb-1">
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                          {company.name}
-                        </CardTitle>
+                <CardHeader className="pb-4 relative overflow-hidden">
+                  {/* Gradient overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${company.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                  
+                  {/* Featured badge */}
+                  {company.featured && (
+                    <div className="absolute top-4 right-4 z-20">
+                      <Badge className="bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg animate-pulse">
+                        <Award className="w-3 h-3 mr-1" />
+                        Featured
+                      </Badge>
+                    </div>
+                  )}
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="relative">
+                        <img
+                          src={company.image}
+                          alt={company.name}
+                          className="w-20 h-20 rounded-2xl object-cover shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-110"
+                        />
                         {company.verified && (
-                          <Badge variant="secondary" className="bg-green-100 text-green-800 text-xs">
-                            ✓ Verified
-                          </Badge>
+                          <div className="absolute -top-2 -right-2">
+                            <div className="w-6 h-6 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
+                              <span className="text-white text-xs font-bold">✓</span>
+                            </div>
+                          </div>
                         )}
                       </div>
-                      <CardDescription className="mt-1">
-                        {company.category} • {company.subcategory}
-                      </CardDescription>
-                      {company.featured && (
-                        <Badge className="mt-2 bg-amber-100 text-amber-800 text-xs">
-                          <Award className="w-3 h-3 mr-1" />
-                          Featured
-                        </Badge>
-                      )}
+                      <div className="flex-1">
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors font-bold leading-tight">
+                          {company.name}
+                        </CardTitle>
+                        <CardDescription className="text-gray-600 font-medium">
+                          {company.category} • {company.subcategory}
+                        </CardDescription>
+                      </div>
                     </div>
                   </div>
                 </CardHeader>
                 
-                <CardContent>
-                  <div className="space-y-4">
-                    <p className="text-gray-600 text-sm">{company.description}</p>
+                <CardContent className="relative z-10">
+                  <div className="space-y-5">
+                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">{company.description}</p>
                     
                     <div className="flex items-center justify-between">
                       <StarRating rating={company.rating} />
-                      <span className="text-gray-600 text-sm">({company.reviewCount.toLocaleString()} reviews)</span>
+                      <span className="text-gray-600 text-sm font-medium">({company.reviewCount.toLocaleString()} reviews)</span>
                     </div>
                     
                     <div className="flex items-center justify-between">
                       <TrustBadge level={company.trustLevel} />
                       <div className="flex items-center text-gray-600 text-sm">
                         <MapPin className="w-3 h-3 mr-1" />
-                        {company.distance}
+                        <span className="font-medium">{company.distance}</span>
                       </div>
                     </div>
                     
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">Services:</h4>
-                      <div className="flex flex-wrap gap-1">
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Zap className="w-4 h-4 mr-2 text-primary" />
+                        Services:
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
                         {company.services.slice(0, 3).map((service, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
+                          <Badge key={index} variant="outline" className="text-xs bg-gray-50 hover:bg-primary hover:text-white transition-colors">
                             {service}
                           </Badge>
                         ))}
                         {company.services.length > 3 && (
-                          <Badge variant="outline" className="text-xs">
+                          <Badge variant="outline" className="text-xs bg-gray-50">
                             +{company.services.length - 3} more
                           </Badge>
                         )}
                       </div>
                     </div>
                     
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between py-3 border-t border-gray-100">
                       <div className="flex items-center text-sm">
-                        <Clock className="w-3 h-3 mr-1" />
+                        <Clock className="w-4 h-4 mr-2" />
                         {company.isOpen ? (
-                          <span className="text-green-600 font-medium">Open now</span>
+                          <span className="text-green-600 font-semibold">Open now</span>
                         ) : (
-                          <span className="text-red-600 font-medium">Closed</span>
+                          <span className="text-red-600 font-semibold">Closed</span>
                         )}
+                      </div>
+                      <div className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                        Responds in {company.responseTime}
                       </div>
                     </div>
                     
-                    <div className="flex items-center justify-between pt-4 border-t">
-                      <span className="text-sm text-gray-600">View profile</span>
-                      <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" />
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div className="flex items-center space-x-3">
+                        <Button size="sm" variant="outline" className="hover:bg-primary hover:text-white transition-colors">
+                          <Heart className="w-4 h-4 mr-1" />
+                          Save
+                        </Button>
+                        <Button size="sm" variant="outline" className="hover:bg-primary hover:text-white transition-colors">
+                          <Eye className="w-4 h-4 mr-1" />
+                          View
+                        </Button>
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors transform group-hover:translate-x-1" />
                     </div>
                   </div>
                 </CardContent>
               </Link>
-            </Card>
+            </div>
           ))}
         </div>
 
-        {/* Statistics Section */}
-        <div className="mt-16 bg-white rounded-lg shadow-soft p-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Why Choose ReviewHub Companies</h2>
-            <p className="text-gray-600">All our listed companies meet high standards of quality and trust</p>
+        {/* Enhanced Statistics Section */}
+        <div className="creative-card p-12 mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Why Choose <span className="gradient-text">ReviewHub Companies</span>
+            </h2>
+            <p className="text-xl text-gray-600">All our listed companies meet high standards of quality and trust</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Building2 className="w-8 h-8 text-primary" />
+            {[
+              { icon: Building2, number: companies.length, label: "Verified Companies", color: "from-blue-500 to-cyan-600" },
+              { icon: Users, number: companies.reduce((sum, company) => sum + company.reviewCount, 0), label: "Customer Reviews", color: "from-purple-500 to-pink-600", format: true },
+              { icon: Star, number: (companies.reduce((sum, company) => sum + company.rating, 0) / companies.length).toFixed(1), label: "Average Rating", color: "from-yellow-500 to-orange-600", suffix: "★" },
+              { icon: TrendingUp, number: Math.round((companies.filter(c => c.verified).length / companies.length) * 100), label: "Verified Rate", color: "from-green-500 to-emerald-600", suffix: "%" }
+            ].map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className={`creative-icon mx-auto mb-4 bg-gradient-to-r ${stat.color} floating-animation`} style={{ animationDelay: `${index * 0.5}s` }}>
+                  <stat.icon className="w-6 h-6" />
+                </div>
+                <div className="text-3xl font-bold text-gray-900 mb-1">
+                  {stat.format ? stat.number.toLocaleString() : stat.number}{stat.suffix || ""}
+                </div>
+                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
               </div>
-              <div className="text-3xl font-bold text-gray-900">
-                {companies.length}
-              </div>
-              <div className="text-sm text-gray-600">Verified Companies</div>
-            </div>
-            
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Users className="w-8 h-8 text-primary" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900">
-                {companies.reduce((sum, company) => sum + company.reviewCount, 0).toLocaleString()}
-              </div>
-              <div className="text-sm text-gray-600">Customer Reviews</div>
-            </div>
-            
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <Star className="w-8 h-8 text-primary" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900">
-                {(companies.reduce((sum, company) => sum + company.rating, 0) / companies.length).toFixed(1)}★
-              </div>
-              <div className="text-sm text-gray-600">Average Rating</div>
-            </div>
-            
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-2">
-                <TrendingUp className="w-8 h-8 text-primary" />
-              </div>
-              <div className="text-3xl font-bold text-gray-900">
-                {Math.round((companies.filter(c => c.verified).length / companies.length) * 100)}%
-              </div>
-              <div className="text-sm text-gray-600">Verified Businesses</div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Looking for something specific?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Can't find what you're looking for? Browse by categories or contact us to add a new business
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
-              <Link to="/categories">Browse Categories</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/for-business">Add Your Business</Link>
-            </Button>
+        {/* Enhanced CTA Section */}
+        <div className="text-center creative-card p-12">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Looking for <span className="gradient-text">something specific?</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+              Can't find what you're looking for? Browse by categories or contact us to add a new business
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button size="lg" className="creative-button" asChild>
+                <Link to="/categories">
+                  <span>Browse Categories</span>
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-2 hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105" asChild>
+                <Link to="/for-business">Add Your Business</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
