@@ -97,7 +97,7 @@ function StarRating({ rating, size = "sm" }: { rating: number; size?: "sm" | "lg
         <Star
           key={star}
           className={`${sizeClasses} ${
-            star <= rating ? "text-yellow-400 fill-current" : "text-gray-300"
+            star <= rating ? "text-yellow-400 fill-current" : "text-gray-300 dark:text-gray-600"
           }`}
         />
       ))}
@@ -119,31 +119,34 @@ export default function Index() {
       <Header />
 
       {/* Creative Hero Section */}
-      <section className="creative-hero py-20 relative overflow-hidden">
+      <section className="creative-hero py-20 relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-lg">
+            <div className="inline-flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-lg">
               <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-              <span className="text-sm font-semibold text-gray-700">Trusted by 10,000+ businesses</span>
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Trusted by 10,000+ businesses</span>
             </div>
             
             <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
-              {t('home.hero.title')}
-              <span className="gradient-text block">{t('home.hero.subtitle')}</span>
+              Find the Best
+              <span className="gradient-text block">Service Providers</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-              {t('home.hero.description')}
+              Read authentic reviews from real customers and discover trusted businesses in your area.
+              Make informed decisions with our AI-powered insights.
             </p>
           </div>
 
           {/* Enhanced Search Bar */}
           <div className="max-w-4xl mx-auto mb-12">
-            <div className="glass-morphism p-8 rounded-3xl backdrop-blur-xl">
+            <div className="glass-morphism p-8 rounded-3xl backdrop-blur-xl bg-white/30 dark:bg-gray-800/30 border border-white/20 dark:border-gray-700/20">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative group">
-                  <Search className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors" />
+                  <Search className={`absolute top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors ${
+                    isRTL ? 'right-4' : 'left-4'
+                  }`} />
                   <Input
-                    placeholder={t('home.hero.searchPlaceholder')}
+                    placeholder="Search for businesses, services, or professionals..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className={`h-14 text-lg border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all ${
@@ -156,7 +159,7 @@ export default function Index() {
                     isRTL ? 'right-4' : 'left-4'
                   }`} />
                   <Input
-                    placeholder={t('home.hero.locationPlaceholder')}
+                    placeholder="Location (city, address, zip code)"
                     value={searchLocation}
                     onChange={(e) => setSearchLocation(e.target.value)}
                     className={`h-14 text-lg border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all ${
@@ -166,7 +169,7 @@ export default function Index() {
                 </div>
                 <Button className="creative-button h-14 px-8 text-lg">
                   <Zap className="w-5 h-5 mr-2" />
-                  {t('home.hero.searchButton')}
+                  Search
                 </Button>
               </div>
             </div>
@@ -184,8 +187,8 @@ export default function Index() {
                 <div className="creative-icon mx-auto mb-3 floating-animation" style={{ animationDelay: `${index * 0.5}s` }}>
                   <stat.icon className="w-6 h-6" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-1">{stat.number}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">{stat.number}</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -198,29 +201,29 @@ export default function Index() {
       </section>
 
       {/* Creative Categories */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Popular <span className="gradient-text">Categories</span>
             </h2>
-            <p className="text-xl text-gray-600">Explore top-rated services in your area</p>
+            <p className="text-xl text-gray-600 dark:text-gray-300">Explore top-rated services in your area</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {categories.map((category, index) => (
               <Link key={category.name} to={category.path}>
-                <div className="creative-card group hover:scale-105 transition-all duration-300">
+                <div className="creative-card group hover:scale-105 transition-all duration-300 bg-white dark:bg-gray-700">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
                     <div className="relative z-10">
                       <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
                         {category.icon}
                       </div>
-                      <h3 className="font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors text-lg">
+                      <h3 className="font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors text-lg">
                         {category.name}
                       </h3>
-                      <Badge variant="secondary" className="mb-4 bg-gray-100 group-hover:bg-primary/10 transition-colors">
+                      <Badge variant="secondary" className="mb-4 bg-gray-100 dark:bg-gray-600 dark:text-gray-200 group-hover:bg-primary/10 transition-colors">
                         {category.count.toLocaleString()} businesses
                       </Badge>
                       <div className="flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
@@ -235,7 +238,7 @@ export default function Index() {
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="border-2 hover:bg-primary hover:text-white transition-all duration-300" asChild>
+            <Button variant="outline" size="lg" className="border-2 hover:bg-primary hover:text-white transition-all duration-300 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-primary dark:hover:text-white" asChild>
               <Link to="/categories">
                 View All Categories
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -246,23 +249,23 @@ export default function Index() {
       </section>
 
       {/* Enhanced Top Companies */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-16">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Top Rated <span className="gradient-text">Businesses</span>
               </h2>
-              <p className="text-xl text-gray-600">Discover excellence in service quality</p>
+              <p className="text-xl text-gray-600 dark:text-gray-300">Discover excellence in service quality</p>
             </div>
-            <Button variant="outline" className="hover:scale-105 transition-transform" asChild>
+            <Button variant="outline" className="hover:scale-105 transition-transform dark:border-gray-600 dark:text-gray-300 dark:hover:bg-primary dark:hover:text-white" asChild>
               <Link to="/top-rated">View All</Link>
             </Button>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {topCompanies.map((company, index) => (
-              <div key={company.id} className="creative-card group" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div key={company.id} className="creative-card group bg-white dark:bg-gray-700" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardHeader className="pb-4 relative overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${company.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
                   <div className="relative z-10">
@@ -281,8 +284,8 @@ export default function Index() {
                           </div>
                         </div>
                         <div>
-                          <CardTitle className="text-xl group-hover:text-primary transition-colors">{company.name}</CardTitle>
-                          <CardDescription className="text-gray-600">{company.category}</CardDescription>
+                          <CardTitle className="text-xl group-hover:text-primary transition-colors text-gray-900 dark:text-white">{company.name}</CardTitle>
+                          <CardDescription className="text-gray-600 dark:text-gray-400">{company.category}</CardDescription>
                         </div>
                       </div>
                       {company.verified && (
@@ -299,14 +302,14 @@ export default function Index() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <StarRating rating={company.rating} size="lg" />
-                        <span className="font-bold text-xl">{company.rating}</span>
+                        <span className="font-bold text-xl text-gray-900 dark:text-white">{company.rating}</span>
                       </div>
-                      <span className="text-gray-600">({company.reviewCount} reviews)</span>
+                      <span className="text-gray-600 dark:text-gray-400">({company.reviewCount} reviews)</span>
                     </div>
                     
                     <div className="flex items-center justify-between">
                       <TrustBadge level={company.trustLevel} />
-                      <div className="flex items-center text-gray-600">
+                      <div className="flex items-center text-gray-600 dark:text-gray-400">
                         <MapPin className="w-4 h-4 mr-2" />
                         <span className="text-sm">{company.location}</span>
                       </div>
@@ -326,27 +329,27 @@ export default function Index() {
       </section>
 
       {/* Enhanced Recent Reviews */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Latest <span className="gradient-text">Reviews</span>
             </h2>
-            <p className="text-xl text-gray-600">See what customers are saying</p>
+            <p className="text-xl text-gray-600 dark:text-gray-300">See what customers are saying</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {recentReviews.map((review, index) => (
-              <div key={review.id} className="creative-card group" style={{ animationDelay: `${index * 0.15}s` }}>
+              <div key={review.id} className="creative-card group bg-white dark:bg-gray-700" style={{ animationDelay: `${index * 0.15}s` }}>
                 <CardContent className="p-8">
                   <div className="flex items-center justify-between mb-6">
                     <StarRating rating={review.rating} />
-                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">{review.date}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-full">{review.date}</span>
                   </div>
                   
-                  <p className="text-gray-700 mb-6 line-clamp-3 leading-relaxed">"{review.text}"</p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-6 line-clamp-3 leading-relaxed">"{review.text}"</p>
                   
-                  <div className="flex items-center justify-between border-t pt-4">
+                  <div className="flex items-center justify-between border-t border-gray-200 dark:border-gray-600 pt-4">
                     <div className="flex items-center space-x-3">
                       <img
                         src={review.avatar}
@@ -354,8 +357,8 @@ export default function Index() {
                         className="w-10 h-10 rounded-full object-cover"
                       />
                       <div>
-                        <div className="font-semibold text-gray-900">{review.reviewer}</div>
-                        <div className="text-sm text-gray-600">{review.company}</div>
+                        <div className="font-semibold text-gray-900 dark:text-white">{review.reviewer}</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-400">{review.company}</div>
                       </div>
                     </div>
                   </div>
