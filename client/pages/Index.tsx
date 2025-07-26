@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const categories = [
   { name: "Doctors & Healthcare", icon: "🏥", count: 1240, path: "/categories/healthcare", gradient: "from-blue-400 to-cyan-500" },
