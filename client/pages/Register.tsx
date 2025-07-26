@@ -15,7 +15,7 @@ export default function Register() {
     lastName: "",
     email: "",
     password: "",
-    agreeTerms: false
+    agreeTerms: false,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,12 +26,14 @@ export default function Register() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      
+
       <div className="flex min-h-screen">
         <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-md w-full space-y-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-900">Create your account</h2>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Create your account
+              </h2>
               <p className="mt-2 text-gray-600">
                 Join ReviewHub and start exploring trusted businesses
               </p>
@@ -47,7 +49,12 @@ export default function Register() {
                       </label>
                       <Input
                         value={formData.firstName}
-                        onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            firstName: e.target.value,
+                          })
+                        }
                         placeholder="First name"
                         required
                       />
@@ -58,7 +65,9 @@ export default function Register() {
                       </label>
                       <Input
                         value={formData.lastName}
-                        onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                        onChange={(e) =>
+                          setFormData({ ...formData, lastName: e.target.value })
+                        }
                         placeholder="Last name"
                         required
                       />
@@ -74,7 +83,9 @@ export default function Register() {
                       <Input
                         type="email"
                         value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                         placeholder="Enter your email"
                         className="pl-10"
                         required
@@ -91,7 +102,9 @@ export default function Register() {
                       <Input
                         type={showPassword ? "text" : "password"}
                         value={formData.password}
-                        onChange={(e) => setFormData({...formData, password: e.target.value})}
+                        onChange={(e) =>
+                          setFormData({ ...formData, password: e.target.value })
+                        }
                         placeholder="Create a password"
                         className="pl-10 pr-10"
                         required
@@ -101,7 +114,11 @@ export default function Register() {
                         onClick={() => setShowPassword(!showPassword)}
                         className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
                       >
-                        {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                        {showPassword ? (
+                          <EyeOff className="h-5 w-5" />
+                        ) : (
+                          <Eye className="h-5 w-5" />
+                        )}
                       </button>
                     </div>
                   </div>
@@ -110,21 +127,36 @@ export default function Register() {
                     <Checkbox
                       id="terms"
                       checked={formData.agreeTerms}
-                      onCheckedChange={(checked) => setFormData({...formData, agreeTerms: checked as boolean})}
+                      onCheckedChange={(checked) =>
+                        setFormData({
+                          ...formData,
+                          agreeTerms: checked as boolean,
+                        })
+                      }
                     />
                     <label htmlFor="terms" className="text-sm text-gray-600">
                       I agree to the{" "}
-                      <Link to="/terms" className="text-primary hover:underline">
+                      <Link
+                        to="/terms"
+                        className="text-primary hover:underline"
+                      >
                         Terms of Service
                       </Link>{" "}
                       and{" "}
-                      <Link to="/privacy" className="text-primary hover:underline">
+                      <Link
+                        to="/privacy"
+                        className="text-primary hover:underline"
+                      >
                         Privacy Policy
                       </Link>
                     </label>
                   </div>
 
-                  <Button type="submit" className="w-full h-12" disabled={!formData.agreeTerms}>
+                  <Button
+                    type="submit"
+                    className="w-full h-12"
+                    disabled={!formData.agreeTerms}
+                  >
                     Create account
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -132,7 +164,10 @@ export default function Register() {
 
                 <p className="mt-6 text-center text-sm text-gray-600">
                   Already have an account?{" "}
-                  <Link to="/login" className="text-primary hover:text-primary/80 font-medium">
+                  <Link
+                    to="/login"
+                    className="text-primary hover:text-primary/80 font-medium"
+                  >
                     Sign in here
                   </Link>
                 </p>
@@ -149,7 +184,8 @@ export default function Register() {
                 Start your journey with ReviewHub
               </h3>
               <p className="text-white/90 mb-8">
-                Join thousands of customers who trust ReviewHub to find the best local businesses and share their experiences.
+                Join thousands of customers who trust ReviewHub to find the best
+                local businesses and share their experiences.
               </p>
             </div>
           </div>

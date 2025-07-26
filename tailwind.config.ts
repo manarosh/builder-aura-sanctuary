@@ -144,7 +144,8 @@ export default {
       boxShadow: {
         soft: "0 2px 8px 0 rgba(0, 0, 0, 0.08)",
         medium: "0 4px 16px 0 rgba(0, 0, 0, 0.12)",
-        creative: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+        creative:
+          "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
         glow: "0 0 20px rgba(59, 130, 246, 0.3)",
         "glow-lg": "0 0 40px rgba(59, 130, 246, 0.4)",
         "glow-purple": "0 0 30px rgba(147, 51, 234, 0.4)",

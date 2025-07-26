@@ -1,22 +1,28 @@
 import { Link } from "react-router-dom";
-import { 
-  CheckCircle, 
-  Star, 
-  BarChart3, 
-  MessageSquare, 
-  Users, 
-  TrendingUp, 
-  Shield, 
+import {
+  CheckCircle,
+  Star,
+  BarChart3,
+  MessageSquare,
+  Users,
+  TrendingUp,
+  Shield,
   Globe,
   Smartphone,
   Mail,
   Award,
   Target,
-  Zap
+  Zap,
 } from "lucide-react";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,33 +31,39 @@ const features = [
   {
     icon: <BarChart3 className="w-6 h-6" />,
     title: "Review Analytics",
-    description: "Track your reputation with detailed analytics and insights about customer feedback."
+    description:
+      "Track your reputation with detailed analytics and insights about customer feedback.",
   },
   {
     icon: <MessageSquare className="w-6 h-6" />,
     title: "Respond to Reviews",
-    description: "Engage with customers by responding to reviews and building stronger relationships."
+    description:
+      "Engage with customers by responding to reviews and building stronger relationships.",
   },
   {
     icon: <Users className="w-6 h-6" />,
     title: "Customer Insights",
-    description: "Understand your customers better with AI-powered sentiment analysis and trends."
+    description:
+      "Understand your customers better with AI-powered sentiment analysis and trends.",
   },
   {
     icon: <Shield className="w-6 h-6" />,
     title: "Trust Verification",
-    description: "Get verified status and build trust with our comprehensive verification process."
+    description:
+      "Get verified status and build trust with our comprehensive verification process.",
   },
   {
     icon: <Globe className="w-6 h-6" />,
     title: "Enhanced Visibility",
-    description: "Increase your online presence and reach more potential customers."
+    description:
+      "Increase your online presence and reach more potential customers.",
   },
   {
     icon: <Smartphone className="w-6 h-6" />,
     title: "Mobile-Friendly",
-    description: "Manage your business profile and reviews on the go with our mobile app."
-  }
+    description:
+      "Manage your business profile and reviews on the go with our mobile app.",
+  },
 ];
 
 const plans = [
@@ -63,10 +75,10 @@ const plans = [
       "Basic business profile",
       "Receive customer reviews",
       "Basic analytics dashboard",
-      "Email support"
+      "Email support",
     ],
     cta: "Start Free",
-    popular: false
+    popular: false,
   },
   {
     name: "Professional",
@@ -78,10 +90,10 @@ const plans = [
       "Advanced analytics & insights",
       "Review invitation tools",
       "Priority support",
-      "API access"
+      "API access",
     ],
     cta: "Start Trial",
-    popular: true
+    popular: true,
   },
   {
     name: "Enterprise",
@@ -93,11 +105,11 @@ const plans = [
       "Custom integrations",
       "Dedicated account manager",
       "24/7 phone support",
-      "Custom reporting"
+      "Custom reporting",
     ],
     cta: "Contact Sales",
-    popular: false
-  }
+    popular: false,
+  },
 ];
 
 const testimonials = [
@@ -106,22 +118,22 @@ const testimonials = [
     company: "Nordic Dental Care",
     text: "ReviewHub has transformed how we manage our online reputation. We've seen a 40% increase in new patients since joining.",
     rating: 5,
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
   },
   {
     name: "Erik Johansson",
     company: "Stockholm Auto Repair",
     text: "The analytics help us understand what customers value most. Our service quality has improved significantly.",
     rating: 5,
-    image: "/placeholder.svg"
+    image: "/placeholder.svg",
   },
   {
     name: "Anna Petersson",
     company: "Bella Beauty Salon",
     text: "Being able to respond to reviews has helped us build stronger relationships with our clients.",
     rating: 5,
-    image: "/placeholder.svg"
-  }
+    image: "/placeholder.svg",
+  },
 ];
 
 function StarRating({ rating }: { rating: number }) {
@@ -143,7 +155,7 @@ export default function ForBusiness() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-white to-blue-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -157,8 +169,8 @@ export default function ForBusiness() {
                 <span className="text-primary block">Customer Reviews</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Join thousands of successful businesses using ReviewHub to build trust, 
-                attract customers, and grow their reputation online.
+                Join thousands of successful businesses using ReviewHub to build
+                trust, attract customers, and grow their reputation online.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="h-12 px-8">
@@ -172,7 +184,7 @@ export default function ForBusiness() {
                 ✓ No credit card required ✓ Setup in 5 minutes ✓ Cancel anytime
               </p>
             </div>
-            
+
             <div className="mt-12 lg:mt-0">
               <Card className="shadow-2xl">
                 <CardContent className="p-8">
@@ -182,8 +194,12 @@ export default function ForBusiness() {
                         <TrendingUp className="w-6 h-6 text-green-600" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-gray-900">+127%</div>
-                        <div className="text-sm text-gray-600">Average customer growth</div>
+                        <div className="text-2xl font-bold text-gray-900">
+                          +127%
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          Average customer growth
+                        </div>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
@@ -191,8 +207,12 @@ export default function ForBusiness() {
                         <Star className="w-6 h-6 text-blue-600" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-gray-900">4.8★</div>
-                        <div className="text-sm text-gray-600">Average business rating</div>
+                        <div className="text-2xl font-bold text-gray-900">
+                          4.8★
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          Average business rating
+                        </div>
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
@@ -200,8 +220,12 @@ export default function ForBusiness() {
                         <Users className="w-6 h-6 text-purple-600" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-gray-900">2.3M</div>
-                        <div className="text-sm text-gray-600">Monthly platform visitors</div>
+                        <div className="text-2xl font-bold text-gray-900">
+                          2.3M
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          Monthly platform visitors
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -220,13 +244,17 @@ export default function ForBusiness() {
               Everything You Need to Succeed
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Powerful tools to help you manage your online reputation and grow your business
+              Powerful tools to help you manage your online reputation and grow
+              your business
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="text-center hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-6">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary">
                     {feature.icon}
@@ -234,9 +262,7 @@ export default function ForBusiness() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
-                    {feature.description}
-                  </p>
+                  <p className="text-gray-600">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -258,9 +284,9 @@ export default function ForBusiness() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
-              <Card 
-                key={index} 
-                className={`relative ${plan.popular ? 'ring-2 ring-primary shadow-lg' : ''}`}
+              <Card
+                key={index}
+                className={`relative ${plan.popular ? "ring-2 ring-primary shadow-lg" : ""}`}
               >
                 {plan.popular && (
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -269,8 +295,12 @@ export default function ForBusiness() {
                 )}
                 <CardHeader className="text-center pb-6">
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                  <div className="text-3xl font-bold text-primary">{plan.price}</div>
-                  <CardDescription className="mt-2">{plan.description}</CardDescription>
+                  <div className="text-3xl font-bold text-primary">
+                    {plan.price}
+                  </div>
+                  <CardDescription className="mt-2">
+                    {plan.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 mb-8">
@@ -281,8 +311,8 @@ export default function ForBusiness() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
-                    className="w-full" 
+                  <Button
+                    className="w-full"
                     variant={plan.popular ? "default" : "outline"}
                   >
                     {plan.cta}
@@ -311,7 +341,9 @@ export default function ForBusiness() {
               <Card key={index}>
                 <CardContent className="p-6">
                   <StarRating rating={testimonial.rating} />
-                  <p className="text-gray-700 mt-4 mb-6">"{testimonial.text}"</p>
+                  <p className="text-gray-700 mt-4 mb-6">
+                    "{testimonial.text}"
+                  </p>
                   <div className="flex items-center">
                     <img
                       src={testimonial.image}
@@ -319,8 +351,12 @@ export default function ForBusiness() {
                       className="w-10 h-10 rounded-full mr-3"
                     />
                     <div>
-                      <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">{testimonial.company}</div>
+                      <div className="font-semibold text-gray-900">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {testimonial.company}
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -373,7 +409,7 @@ export default function ForBusiness() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Message
                   </label>
-                  <Textarea 
+                  <Textarea
                     placeholder="Tell us about your business and how we can help..."
                     rows={4}
                   />
@@ -397,15 +433,16 @@ export default function ForBusiness() {
             Join 10,000+ Successful Businesses
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Start building your online reputation today with ReviewHub's powerful platform
+            Start building your online reputation today with ReviewHub's
+            powerful platform
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary">
               Start Free Trial
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
+            <Button
+              size="lg"
+              variant="outline"
               className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
             >
               Schedule Demo
