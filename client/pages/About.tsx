@@ -70,25 +70,25 @@ const team = [
 
 const stats = [
   {
-    icon: <Users className="w-8 h-8" />,
+    icon: <Users className="w-6 h-6 md:w-8 md:h-8" />,
     number: "10,000+",
     label: "Businesses Trust Us",
     description: "Companies across Sweden use ReviewHub to manage their reputation"
   },
   {
-    icon: <MessageCircle className="w-8 h-8" />,
+    icon: <MessageCircle className="w-6 h-6 md:w-8 md:h-8" />,
     number: "2.1M+",
     label: "Reviews Collected",
     description: "Authentic customer reviews helping others make informed decisions"
   },
   {
-    icon: <TrendingUp className="w-8 h-8" />,
+    icon: <TrendingUp className="w-6 h-6 md:w-8 md:h-8" />,
     number: "127%",
     label: "Average Growth",
     description: "Increase in customer engagement for businesses using our platform"
   },
   {
-    icon: <Star className="w-8 h-8" />,
+    icon: <Star className="w-6 h-6 md:w-8 md:h-8" />,
     number: "4.8★",
     label: "Platform Rating",
     description: "Customer satisfaction score from businesses and consumers"
@@ -134,25 +134,27 @@ export default function About() {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-white to-blue-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="creative-hero py-16 md:py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <Badge className="mb-4 bg-primary/10 text-primary">
+            <Badge className="mb-4 bg-primary/10 text-primary animate-fade-in">
               About ReviewHub
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Building Trust Between
-              <span className="text-primary block">Businesses & Customers</span>
+              <span className="gradient-text block">Businesses & Customers</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed px-4 sm:px-0">
               We're on a mission to create the most trusted platform for business reviews in Sweden, 
               helping customers make informed decisions while empowering businesses to build authentic reputations.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link to="/for-business">Join as Business</Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
+              <Button size="lg" className="creative-button w-full sm:w-auto" asChild>
+                <Link to="/for-business">
+                  <span>Join as Business</span>
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" className="border-2 hover:bg-primary hover:text-white transition-all w-full sm:w-auto" asChild>
                 <Link to="/companies">Explore Companies</Link>
               </Button>
             </div>
@@ -161,54 +163,54 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
+              <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
                 To create a transparent, trustworthy ecosystem where authentic customer reviews 
                 help businesses improve and customers make confident decisions. We believe that 
                 honest feedback benefits everyone.
               </p>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed">
                 By combining advanced AI technology with human insight, we're building the future 
                 of business reviews - one that's fair, accurate, and beneficial for all stakeholders.
               </p>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">100% authentic, verified reviews</span>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm sm:text-base">100% authentic, verified reviews</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">AI-powered review analysis and insights</span>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm sm:text-base">AI-powered review analysis and insights</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">Support for businesses of all sizes</span>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm sm:text-base">Support for businesses of all sizes</span>
                 </div>
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-6">
+            <div className="order-1 lg:order-2 grid grid-cols-2 gap-4 sm:gap-6">
               {stats.map((stat, index) => (
-                <Card key={index} className="text-center">
-                  <CardContent className="p-6">
-                    <div className="text-primary mb-4 flex justify-center">
+                <div key={index} className="creative-card text-center" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="text-primary mb-3 sm:mb-4 flex justify-center">
                       {stat.icon}
                     </div>
-                    <div className="text-2xl font-bold text-gray-900 mb-1">
+                    <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
                       {stat.number}
                     </div>
-                    <div className="text-sm font-medium text-gray-900 mb-2">
+                    <div className="text-xs sm:text-sm font-medium text-gray-900 mb-2 leading-tight">
                       {stat.label}
                     </div>
-                    <div className="text-xs text-gray-600">
+                    <div className="text-xs text-gray-600 leading-tight">
                       {stat.description}
                     </div>
                   </CardContent>
-                </Card>
+                </div>
               ))}
             </div>
           </div>
@@ -216,102 +218,128 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              Our <span className="gradient-text">Values</span>
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
               The principles that guide everything we do at ReviewHub
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="text-primary mb-4 flex justify-center">
+              <div key={index} className="creative-card group text-center" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6 sm:p-8">
+                  <div className="creative-icon mx-auto mb-4 text-primary">
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                     {value.description}
                   </p>
                 </CardContent>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Team */}
-      <section className="py-16 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              Meet Our <span className="gradient-text">Team</span>
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
               The passionate people behind ReviewHub who are dedicated to building trust online
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {team.map((member, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="p-6">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
-                  />
-                  <h3 className="text-xl font-semibold text-gray-900 mb-1">
+              <div key={index} className="creative-card text-center group" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6 sm:p-8">
+                  <div className="relative mb-4 sm:mb-6">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">
                     {member.name}
                   </h3>
-                  <p className="text-primary font-medium mb-3">
+                  <p className="text-primary font-medium mb-3 text-sm sm:text-base">
                     {member.role}
                   </p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                     {member.bio}
                   </p>
                 </CardContent>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-16 bg-gray-50">
+      {/* Timeline - Responsive Fix */}
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Journey</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              Our <span className="gradient-text">Journey</span>
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
               From startup to Sweden's most trusted review platform
             </p>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary h-full"></div>
+          {/* Mobile Timeline */}
+          <div className="lg:hidden space-y-8">
+            {milestones.map((milestone, index) => (
+              <div key={index} className="creative-card" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6">
+                  <Badge className="mb-4">{milestone.year}</Badge>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
+                    {milestone.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    {milestone.description}
+                  </p>
+                </CardContent>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Timeline */}
+          <div className="hidden lg:block relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-primary to-purple-600 h-full rounded-full"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                  <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-8 lg:text-right' : 'lg:pl-8'}`}>
-                    <Card>
-                      <CardContent className="p-6">
-                        <Badge className="mb-3">{milestone.year}</Badge>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12'}`}>
+                    <div className="creative-card" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <CardContent className="p-8">
+                        <Badge className="mb-4">{milestone.year}</Badge>
+                        <h3 className="text-xl font-semibold text-gray-900 mb-3">
                           {milestone.title}
                         </h3>
-                        <p className="text-gray-600">
+                        <p className="text-gray-600 leading-relaxed">
                           {milestone.description}
                         </p>
                       </CardContent>
-                    </Card>
+                    </div>
                   </div>
-                  <div className="relative flex items-center justify-center w-8 h-8 bg-primary rounded-full z-10">
-                    <div className="w-4 h-4 bg-white rounded-full"></div>
+                  <div className="relative flex items-center justify-center w-12 h-12 bg-gradient-to-r from-primary to-purple-600 rounded-full z-10 shadow-lg">
+                    <div className="w-6 h-6 bg-white rounded-full shadow-inner"></div>
                   </div>
-                  <div className="lg:w-1/2"></div>
+                  <div className="w-1/2"></div>
                 </div>
               ))}
             </div>
@@ -320,26 +348,34 @@ export default function About() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Want to Learn More?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Get in touch with our team to learn more about ReviewHub and how we can help your business grow
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
-              Contact Us
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
-              asChild
-            >
-              <Link to="/for-business">For Business</Link>
-            </Button>
+      <section className="py-16 md:py-20 bg-gradient-to-br from-primary via-purple-600 to-pink-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-black/20"></div>
+          <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="glass-morphism p-8 sm:p-12 rounded-3xl max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
+              Want to Learn More?
+            </h2>
+            <p className="text-lg sm:text-xl text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+              Get in touch with our team to learn more about ReviewHub and how we can help your business grow
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0">
+              <Button size="lg" variant="secondary" className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-semibold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 w-full sm:w-auto" asChild>
+                <Link to="/contact">Contact Us</Link>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-semibold bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-all transform hover:scale-105 w-full sm:w-auto"
+                asChild
+              >
+                <Link to="/for-business">For Business</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
