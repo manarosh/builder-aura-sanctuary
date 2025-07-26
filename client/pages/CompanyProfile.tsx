@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { 
-  Star, 
-  MapPin, 
-  Clock, 
-  Phone, 
-  Globe, 
-  Mail, 
-  ThumbsUp, 
-  ThumbsDown, 
+import {
+  Star,
+  MapPin,
+  Clock,
+  Phone,
+  Globe,
+  Mail,
+  ThumbsUp,
+  ThumbsDown,
   Filter,
   Share2,
   Heart,
@@ -20,6 +20,7 @@ import {
   MessageSquare,
   Award
 } from "lucide-react";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
