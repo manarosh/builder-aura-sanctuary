@@ -143,24 +143,30 @@ export default function Index() {
                 <div className="flex-1 relative group">
                   <Search className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors" />
                   <Input
-                    placeholder="Search for businesses, services, or professionals..."
+                    placeholder={t('home.hero.searchPlaceholder')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all"
+                    className={`h-14 text-lg border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all ${
+                      isRTL ? 'pr-12 text-right' : 'pl-12'
+                    }`}
                   />
                 </div>
                 <div className="flex-1 relative group">
-                  <MapPin className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors" />
+                  <MapPin className={`absolute top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors ${
+                    isRTL ? 'right-4' : 'left-4'
+                  }`} />
                   <Input
-                    placeholder="Location (city, address, zip code)"
+                    placeholder={t('home.hero.locationPlaceholder')}
                     value={searchLocation}
                     onChange={(e) => setSearchLocation(e.target.value)}
-                    className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all"
+                    className={`h-14 text-lg border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all ${
+                      isRTL ? 'pr-12 text-right' : 'pl-12'
+                    }`}
                   />
                 </div>
                 <Button className="creative-button h-14 px-8 text-lg">
                   <Zap className="w-5 h-5 mr-2" />
-                  Search
+                  {t('home.hero.searchButton')}
                 </Button>
               </div>
             </div>
