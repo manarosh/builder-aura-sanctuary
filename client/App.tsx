@@ -28,12 +28,13 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/company/:id" element={<CompanyProfile />} />
+          <Route path="/companies" element={<Companies />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:category" element={<PlaceholderPage title="Category Listings" description="Browse all businesses in this category with advanced filtering options." />} />
-          <Route path="/for-business" element={<PlaceholderPage title="For Business Owners" description="Join ReviewHub and start collecting reviews to grow your business." />} />
-          <Route path="/about" element={<PlaceholderPage title="About ReviewHub" description="Learn more about our mission to connect customers with trusted businesses." />} />
-          <Route path="/login" element={<PlaceholderPage title="Sign In" description="Access your ReviewHub account to manage reviews and preferences." />} />
-          <Route path="/register" element={<PlaceholderPage title="Sign Up" description="Create a new ReviewHub account to start reviewing local businesses." />} />
+          <Route path="/for-business" element={<ForBusiness />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/top-rated" element={<PlaceholderPage title="Top Rated Businesses" description="Discover the highest-rated businesses in your area." />} />
           <Route path="/write-review" element={<PlaceholderPage title="Write a Review" description="Share your experience and help others make informed decisions." />} />
           <Route path="/business-login" element={<PlaceholderPage title="Business Login" description="Access your business dashboard to manage your profile and reviews." />} />
