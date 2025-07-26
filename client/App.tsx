@@ -44,6 +44,17 @@ const App = () => (
           <Route path="/contact" element={<PlaceholderPage title="Contact Us" description="Get in touch with our support team for assistance." />} />
           <Route path="/privacy" element={<PlaceholderPage title="Privacy Policy" description="Learn how we protect and use your personal information." />} />
           <Route path="/terms" element={<PlaceholderPage title="Terms of Service" description="Review our terms and conditions for using ReviewHub." />} />
+          <Route path="/forgot-password" element={<PlaceholderPage title="Forgot Password" description="Reset your password to regain access to your account." />} />
+          <Route path="/suggest-category" element={<PlaceholderPage title="Suggest Category" description="Help us improve by suggesting a new business category." />} />
+          {/* Category specific routes */}
+          <Route path="/categories/healthcare" element={<PlaceholderPage title="Healthcare Businesses" description="Find trusted healthcare providers in your area." />} />
+          <Route path="/categories/legal" element={<PlaceholderPage title="Legal Services" description="Connect with experienced legal professionals." />} />
+          <Route path="/categories/home-services" element={<PlaceholderPage title="Home Services" description="Reliable home improvement and maintenance services." />} />
+          <Route path="/categories/restaurants" element={<PlaceholderPage title="Restaurants" description="Discover amazing dining experiences near you." />} />
+          <Route path="/categories/auto" element={<PlaceholderPage title="Auto Services" description="Trusted automotive repair and maintenance services." />} />
+          <Route path="/categories/beauty" element={<PlaceholderPage title="Beauty & Spa" description="Pamper yourself with top-rated beauty and spa services." />} />
+          <Route path="/categories/education" element={<PlaceholderPage title="Education" description="Quality educational services and institutions." />} />
+          <Route path="/categories/finance" element={<PlaceholderPage title="Financial Services" description="Professional financial planning and services." />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
