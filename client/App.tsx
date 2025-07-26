@@ -10,6 +10,11 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CompanyProfile from "./pages/CompanyProfile";
 import Categories from "./pages/Categories";
+import Companies from "./pages/Companies";
+import ForBusiness from "./pages/ForBusiness";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import PlaceholderPage from "./pages/PlaceholderPage";
 
 const queryClient = new QueryClient();
