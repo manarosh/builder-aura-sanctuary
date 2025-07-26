@@ -380,7 +380,7 @@ export default function Index() {
                 <Link to="/for-business">List Your Business</Link>
               </Button>
               <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-all transform hover:scale-105" asChild>
-                <Link to="/business-login">Business Login</Link>
+                <Link to="/login">Business Login</Link>
               </Button>
             </div>
           </div>
