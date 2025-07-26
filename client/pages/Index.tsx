@@ -112,6 +112,7 @@ function TrustBadge({ level }: { level: string }) {
 export default function Index() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
+  const { t, isRTL } = useLanguage();
 
   return (
     <div className="min-h-screen bg-gray-50">
