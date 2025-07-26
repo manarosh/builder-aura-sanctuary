@@ -127,13 +127,12 @@ export default function Index() {
               <span className="text-sm font-semibold text-gray-700">Trusted by 10,000+ businesses</span>
             </div>
             
-            <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
-              Find the Best
-              <span className="gradient-text block">Service Providers</span>
+            <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
+              {t('home.hero.title')}
+              <span className="gradient-text block">{t('home.hero.subtitle')}</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Read authentic reviews from real customers and discover trusted businesses in your area.
-              Make informed decisions with our AI-powered insights.
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+              {t('home.hero.description')}
             </p>
           </div>
 
