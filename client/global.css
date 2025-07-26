@@ -198,7 +198,7 @@
   }
 
   .creative-hero {
-    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden;
+    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden;
   }
 
   .creative-hero::before {
