@@ -40,6 +40,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Mock data - in real app this would come from API
 const companyData = {
@@ -179,6 +180,7 @@ export default function CompanyProfile() {
   const { id } = useParams();
   const [selectedFilter, setSelectedFilter] = useState("newest");
   const [showAllHours, setShowAllHours] = useState(false);
+  const { t } = useLanguage();
 
   const ratingDistribution = [
     { stars: 5, count: 2150, percentage: 76 },
@@ -189,36 +191,36 @@ export default function CompanyProfile() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
         <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
           <Link to="/" className="hover:text-gray-900">
-            Home
+            {t("header.home")}
           </Link>
           <span>/</span>
           <Link to="/categories" className="hover:text-gray-900">
-            Categories
+            {t("header.categories")}
           </Link>
           <span>/</span>
           <Link to="/categories/healthcare" className="hover:text-gray-900">
-            Healthcare
+            {t("companyProfile.breadcrumbCategory")}
           </Link>
           <span>/</span>
           <span className="text-gray-900">{companyData.name}</span>
         </div>
 
         {/* Company Header */}
-        <Card className="mb-8">
+        <Card className="mb-8 bg-card text-card-foreground border border-card">
           <CardContent className="p-8">
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="flex-1">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <div className="flex items-center space-x-3 mb-2">
-                      <h1 className="text-3xl font-bold text-gray-900">
+                      <h1 className="text-3xl font-bold text-card-foreground">
                         {companyData.name}
                       </h1>
                       {companyData.verified && (
@@ -231,7 +233,7 @@ export default function CompanyProfile() {
                       )}
                       <TrustBadge level={companyData.trustLevel} />
                     </div>
-                    <p className="text-lg text-gray-600 mb-4">
+                    <p className="text-lg text-muted-foreground mb-4">
                       {companyData.category} • {companyData.subcategory}
                     </p>
                   </div>
@@ -239,11 +241,11 @@ export default function CompanyProfile() {
                   <div className="flex items-center space-x-2">
                     <Button variant="outline" size="sm">
                       <Heart className="w-4 h-4 mr-2" />
-                      Save
+                      {t("common.save")}
                     </Button>
                     <Button variant="outline" size="sm">
                       <Share2 className="w-4 h-4 mr-2" />
-                      Share
+                      {t("companyProfile.share")}
                     </Button>
                   </div>
                 </div>
@@ -254,8 +256,8 @@ export default function CompanyProfile() {
                     <span className="text-2xl font-bold">
                       {companyData.rating}
                     </span>
-                    <span className="text-gray-600">
-                      ({companyData.reviewCount.toLocaleString()} reviews)
+                    <span className="text-muted-foreground">
+                      ({companyData.reviewCount.toLocaleString()}) {t("companyProfile.reviews")}
                     </span>
                   </div>
                   <div className="flex items-center space-x-2 text-gray-600">
@@ -264,18 +266,18 @@ export default function CompanyProfile() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 mb-6">{companyData.description}</p>
+                <p className="text-muted-foreground mb-6">{companyData.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {companyData.services.map((service) => (
-                    <Badge key={service} variant="secondary">
+                    <Badge key={service} variant="secondary" className="text-muted-foreground">
                       {service}
                     </Badge>
                   ))}
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Write a Review
                   </Button>
@@ -317,7 +319,7 @@ export default function CompanyProfile() {
             <Tabs defaultValue="reviews" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="reviews">
-                  Reviews ({companyData.reviewCount})
+                  {t("companyProfile.reviews")} ({companyData.reviewCount})
                 </TabsTrigger>
                 <TabsTrigger value="insights">AI Insights</TabsTrigger>
                 <TabsTrigger value="photos">Photos</TabsTrigger>
@@ -344,7 +346,7 @@ export default function CompanyProfile() {
                 </div>
 
                 {/* Rating Summary */}
-                <Card>
+                <Card className="bg-card text-card-foreground border border-card">
                   <CardContent className="p-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="text-center">
@@ -356,8 +358,8 @@ export default function CompanyProfile() {
                           size="lg"
                           showNumber={false}
                         />
-                        <p className="text-gray-600 mt-2">
-                          {companyData.reviewCount.toLocaleString()} reviews
+                        <p className="text-muted-foreground mt-2">
+                          {companyData.reviewCount.toLocaleString()} {t("companyProfile.reviews")}
                         </p>
                       </div>
 
@@ -372,7 +374,7 @@ export default function CompanyProfile() {
                               value={item.percentage}
                               className="flex-1"
                             />
-                            <span className="text-sm text-gray-600 w-12">
+                            <span className="text-sm text-muted-foreground w-12">
                               {item.count}
                             </span>
                           </div>
@@ -385,7 +387,7 @@ export default function CompanyProfile() {
                 {/* Reviews List */}
                 <div className="space-y-6">
                   {reviews.map((review) => (
-                    <Card key={review.id}>
+                    <Card key={review.id} className="bg-card text-card-foreground border border-card">
                       <CardContent className="p-6">
                         <div className="flex items-start space-x-4">
                           <Avatar>
@@ -413,17 +415,17 @@ export default function CompanyProfile() {
                                 </div>
                                 <div className="flex items-center space-x-2 mt-1">
                                   <StarRating rating={review.rating} />
-                                  <span className="text-sm text-gray-600">
+                                  <span className="text-sm text-muted-foreground">
                                     • {review.experience}
                                   </span>
                                 </div>
                               </div>
-                              <span className="text-sm text-gray-500">
+                              <span className="text-sm text-muted-foreground">
                                 {review.date}
                               </span>
                             </div>
 
-                            <p className="text-gray-700 mb-4">{review.text}</p>
+                            <p className="text-muted-foreground mb-4">{review.text}</p>
 
                             {review.images.length > 0 && (
                               <div className="flex space-x-2 mb-4">
@@ -457,33 +459,33 @@ export default function CompanyProfile() {
 
                 <div className="text-center">
                   <Button variant="outline" size="lg">
-                    Load More Reviews
+                    {t("companyProfile.loadMore")}
                   </Button>
                 </div>
               </TabsContent>
 
               <TabsContent value="insights" className="space-y-6">
-                <Card>
+                <Card className="bg-card text-card-foreground border border-card">
                   <CardHeader>
-                    <CardTitle className="flex items-center">
+                    <CardTitle className="flex items-center text-card-foreground">
                       <TrendingUp className="w-5 h-5 mr-2" />
-                      AI-Powered Review Analysis
+                      {t("companyProfile.aiAnalysis")}
                     </CardTitle>
-                    <CardDescription>
-                      Insights generated from {companyData.reviewCount} customer
-                      reviews
+                    <CardDescription className="text-muted-foreground">
+                      {t("companyProfile.aiInsightsDescription", { count: companyData.reviewCount })}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
                       <h4 className="font-semibold mb-3">Summary</h4>
-                      <p className="text-gray-700">{aiInsights.summary}</p>
+                      {/* Consider making this translatable if needed */}
+                      <p className="text-muted-foreground">{aiInsights.summary}</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <h4 className="font-semibold mb-3 text-green-700">
-                          Most Mentioned Positives
+                          {t("companyProfile.positives")}
                         </h4>
                         <div className="space-y-2">
                           {aiInsights.positiveKeywords.map((keyword) => (
@@ -491,7 +493,7 @@ export default function CompanyProfile() {
                               key={keyword.word}
                               className="flex items-center justify-between"
                             >
-                              <span className="text-sm">{keyword.word}</span>
+                              <span className="text-sm text-muted-foreground">{keyword.word}</span>
                               <Badge
                                 variant="secondary"
                                 className="bg-green-100 text-green-800"
@@ -505,7 +507,7 @@ export default function CompanyProfile() {
 
                       <div>
                         <h4 className="font-semibold mb-3 text-red-700">
-                          Areas for Improvement
+                          {t("companyProfile.negatives")}
                         </h4>
                         <div className="space-y-2">
                           {aiInsights.negativeKeywords.map((keyword) => (
@@ -513,7 +515,7 @@ export default function CompanyProfile() {
                               key={keyword.word}
                               className="flex items-center justify-between"
                             >
-                              <span className="text-sm">{keyword.word}</span>
+                              <span className="text-sm text-muted-foreground">{keyword.word}</span>
                               <Badge
                                 variant="secondary"
                                 className="bg-red-100 text-red-800"
@@ -528,9 +530,10 @@ export default function CompanyProfile() {
 
                     <div>
                       <h4 className="font-semibold mb-3">Sentiment Analysis</h4>
+                      {/* Consider making this translatable if needed */}
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-sm">Positive</span>
+                          <span className="text-sm text-muted-foreground">Positive</span>
                           <div className="flex items-center space-x-2">
                             <Progress
                               value={aiInsights.sentiment.positive}
@@ -542,7 +545,7 @@ export default function CompanyProfile() {
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm">Neutral</span>
+                          <span className="text-sm text-muted-foreground">Neutral</span>
                           <div className="flex items-center space-x-2">
                             <Progress
                               value={aiInsights.sentiment.neutral}
@@ -554,7 +557,7 @@ export default function CompanyProfile() {
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm">Negative</span>
+                          <span className="text-sm text-muted-foreground">Negative</span>
                           <div className="flex items-center space-x-2">
                             <Progress
                               value={aiInsights.sentiment.negative}
@@ -572,11 +575,12 @@ export default function CompanyProfile() {
               </TabsContent>
 
               <TabsContent value="photos">
-                <Card>
+                <Card className="bg-card text-card-foreground border border-card">
                   <CardHeader>
-                    <CardTitle>Photos & Media</CardTitle>
-                    <CardDescription>
-                      Images uploaded by customers and business
+                    <CardTitle className="text-card-foreground">Photos & Media</CardTitle>
+                    {/* Consider making this translatable if needed */}
+                    <CardDescription className="text-muted-foreground">
+                      {t("companyProfile.photosDescription")}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -600,9 +604,10 @@ export default function CompanyProfile() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Contact Info */}
-            <Card>
+            <Card className="bg-card text-card-foreground border border-card">
               <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+                <CardTitle className="text-card-foreground">Contact Information</CardTitle>
+                {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -630,9 +635,10 @@ export default function CompanyProfile() {
             </Card>
 
             {/* Hours */}
-            <Card>
+            <Card className="bg-card text-card-foreground border border-card">
               <CardHeader>
-                <CardTitle>Business Hours</CardTitle>
+                <CardTitle className="text-card-foreground">Business Hours</CardTitle>
+                {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -657,21 +663,25 @@ export default function CompanyProfile() {
             </Card>
 
             {/* Company Stats */}
-            <Card>
+            <Card className="bg-card text-card-foreground border border-card">
               <CardHeader>
-                <CardTitle>Company Details</CardTitle>
+                <CardTitle className="text-card-foreground">Company Details</CardTitle>
+                {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Founded</span>
+                  <span className="text-muted-foreground">Founded</span>
+                  {/* Consider making this translatable if needed */}
                   <span className="font-medium">{companyData.founded}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Employees</span>
+                  <span className="text-muted-foreground">Employees</span>
+                  {/* Consider making this translatable if needed */}
                   <span className="font-medium">{companyData.employees}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Trust Level</span>
+                  <span className="text-muted-foreground">Trust Level</span>
+                  {/* Consider making this translatable if needed */}
                   <TrustBadge level={companyData.trustLevel} />
                 </div>
               </CardContent>

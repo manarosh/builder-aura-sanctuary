@@ -18,6 +18,8 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PlaceholderPage from "./pages/PlaceholderPage";
+import Contact from "./pages/Contact";
+import Category from "./pages/Category";
 
 const queryClient = new QueryClient();
 
@@ -34,15 +36,7 @@ const App = () => (
               <Route path="/company/:id" element={<CompanyProfile />} />
               <Route path="/companies" element={<Companies />} />
               <Route path="/categories" element={<Categories />} />
-              <Route
-                path="/categories/:category"
-                element={
-                  <PlaceholderPage
-                    title="Category Listings"
-                    description="Browse all businesses in this category with advanced filtering options."
-                  />
-                }
-              />
+              <Route path="/categories/:category" element={<Category />} />
               <Route path="/for-business" element={<ForBusiness />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
@@ -101,15 +95,7 @@ const App = () => (
                   />
                 }
               />
-              <Route
-                path="/contact"
-                element={
-                  <PlaceholderPage
-                    title="Contact Us"
-                    description="Get in touch with our support team for assistance."
-                  />
-                }
-              />
+              <Route path="/contact" element={<Contact />} />
               <Route
                 path="/privacy"
                 element={

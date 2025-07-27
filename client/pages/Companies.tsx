@@ -36,6 +36,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Enhanced mock data for companies
 const companies = [
@@ -301,6 +302,7 @@ export default function Companies() {
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
   const [sortBy, setSortBy] = useState("featured");
   const [showFilters, setShowFilters] = useState(false);
+  const { t } = useLanguage();
 
   const filteredCompanies = companies.filter(
     (company) =>
@@ -329,7 +331,7 @@ export default function Companies() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-gray-800/30 dark:to-purple-900/30 transition-colors">
+    <div className="min-h-screen bg-background transition-colors">
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -337,32 +339,31 @@ export default function Companies() {
         <div className="text-center mb-16 relative">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-full blur-3xl -z-10"></div>
 
-          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-lg">
+          <div className="inline-flex items-center space-x-2 bg-card text-card-foreground border border-card rounded-full px-4 py-2 mb-6 shadow-lg">
             <Building2 className="w-5 h-5 text-primary animate-pulse" />
-            <span className="text-sm font-semibold text-gray-700">
-              {companies.length} verified companies
+            <span className="text-sm font-semibold text-muted-foreground">
+              {t("companies.hero.verified", { count: companies.length })}
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Discover <span className="gradient-text">Trusted Businesses</span>
+          <h1 className="text-4xl md:text-6xl font-bold text-card-foreground mb-6">
+            {t("companies.hero.title")} <span className="gradient-text">{t("companies.hero.titleHighlight")}</span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Browse through our curated collection of verified companies and find
-            the perfect service provider for your needs
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+            {t("companies.hero.description")}
           </p>
 
           {/* Enhanced Search Bar */}
           <div className="max-w-4xl mx-auto mb-8">
-            <div className="glass-morphism p-6 rounded-3xl backdrop-blur-xl">
+            <div className="glass-morphism p-6 rounded-3xl">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative group">
                   <Search className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors" />
                   <Input
-                    placeholder="Search companies, services, or categories..."
+                    placeholder={t("companies.hero.searchPlaceholder")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all"
+                    className="pl-12 h-14 text-lg border-0 bg-card text-card-foreground rounded-2xl shadow-md focus:shadow-lg transition-all"
                   />
                 </div>
                 <div className="flex-1 relative group">
@@ -371,7 +372,7 @@ export default function Companies() {
                     value={selectedLocation}
                     onValueChange={setSelectedLocation}
                   >
-                    <SelectTrigger className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg">
+                    <SelectTrigger className="pl-12 h-14 text-lg border-0 bg-card text-card-foreground rounded-2xl shadow-md focus:shadow-lg">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -403,16 +404,16 @@ export default function Companies() {
 
         {/* Popular Searches */}
         <div className="mb-12">
-          <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+          <h3 className="text-lg font-semibold text-card-foreground mb-6 flex items-center">
             <Sparkles className="w-5 h-5 mr-2 text-primary" />
-            Popular Searches
+            {t("companies.popularSearches")}
           </h3>
           <div className="flex flex-wrap gap-3">
             {popularSearches.map((search, index) => (
               <Badge
                 key={index}
                 variant="secondary"
-                className="cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 py-2 px-4 text-sm bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg"
+                className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105 py-2 px-4 text-sm bg-card text-card-foreground border border-card shadow-md hover:shadow-lg"
                 onClick={() => setSearchQuery(search)}
               >
                 {search}
@@ -423,19 +424,15 @@ export default function Companies() {
 
         {/* Filters and Sort */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl px-4 py-2 shadow-md">
-            <p className="text-gray-600 font-medium">
-              Showing{" "}
-              <span className="text-primary font-bold">
-                {sortedCompanies.length}
-              </span>{" "}
-              companies
+          <div className="bg-card text-card-foreground border border-card rounded-xl px-4 py-2 shadow-md">
+            <p className="text-muted-foreground font-medium">
+              {t("companies.showingResults", { count: sortedCompanies.length })}
             </p>
           </div>
 
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-48 bg-white/80 backdrop-blur-sm border-0 shadow-md hover:shadow-lg transition-all">
+              <SelectTrigger className="w-48 bg-card text-card-foreground border border-card shadow-md hover:shadow-lg transition-all">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -469,7 +466,7 @@ export default function Companies() {
                     <div className="absolute top-4 right-4 z-20">
                       <Badge className="bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg animate-pulse">
                         <Award className="w-3 h-3 mr-1" />
-                        Featured
+                        {t("companies.featured")}
                       </Badge>
                     </div>
                   )}
@@ -493,10 +490,10 @@ export default function Companies() {
                         )}
                       </div>
                       <div className="flex-1">
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors font-bold leading-tight">
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors font-bold leading-tight text-card-foreground">
                           {company.name}
                         </CardTitle>
-                        <CardDescription className="text-gray-600 font-medium">
+                        <CardDescription className="text-muted-foreground font-medium">
                           {company.category} • {company.subcategory}
                         </CardDescription>
                       </div>
@@ -512,23 +509,23 @@ export default function Companies() {
 
                     <div className="flex items-center justify-between">
                       <StarRating rating={company.rating} />
-                      <span className="text-gray-600 text-sm font-medium">
-                        ({company.reviewCount.toLocaleString()} reviews)
+                      <span className="text-muted-foreground text-sm font-medium">
+                        ({company.reviewCount.toLocaleString()} {t("companies.reviews")})
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between">
                       <TrustBadge level={company.trustLevel} />
-                      <div className="flex items-center text-gray-600 text-sm">
+                      <div className="flex items-center text-muted-foreground text-sm">
                         <MapPin className="w-3 h-3 mr-1" />
                         <span className="font-medium">{company.distance}</span>
                       </div>
                     </div>
 
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                      <h4 className="font-semibold text-card-foreground mb-3 flex items-center">
                         <Zap className="w-4 h-4 mr-2 text-primary" />
-                        Services:
+                        {t("companies.services")}
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {company.services.slice(0, 3).map((service, index) => (
@@ -556,15 +553,15 @@ export default function Companies() {
                         <Clock className="w-4 h-4 mr-2" />
                         {company.isOpen ? (
                           <span className="text-green-600 font-semibold">
-                            Open now
+                            {t("common.openNow")}
                           </span>
                         ) : (
                           <span className="text-red-600 font-semibold">
-                            Closed
+                            {t("common.closed")}
                           </span>
                         )}
                       </div>
-                      <div className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                      <div className="text-xs text-muted-foreground bg-gray-100 px-2 py-1 rounded-full">
                         Responds in {company.responseTime}
                       </div>
                     </div>
@@ -577,7 +574,7 @@ export default function Companies() {
                           className="hover:bg-primary hover:text-white transition-colors"
                         >
                           <Heart className="w-4 h-4 mr-1" />
-                          Save
+                          {t("common.save")}
                         </Button>
                         <Button
                           size="sm"
@@ -585,7 +582,7 @@ export default function Companies() {
                           className="hover:bg-primary hover:text-white transition-colors"
                         >
                           <Eye className="w-4 h-4 mr-1" />
-                          View
+                          {t("common.view")}
                         </Button>
                       </div>
                       <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors transform group-hover:translate-x-1" />
@@ -600,12 +597,11 @@ export default function Companies() {
         {/* Enhanced Statistics Section */}
         <div className="creative-card p-12 mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose{" "}
-              <span className="gradient-text">ReviewHub Companies</span>
+            <h2 className="text-3xl font-bold text-card-foreground mb-4">
+              {t("companies.why.title")} <span className="gradient-text">{t("companies.why.titleHighlight")}</span>
             </h2>
-            <p className="text-xl text-gray-600">
-              All our listed companies meet high standards of quality and trust
+            <p className="text-xl text-muted-foreground">
+              {t("companies.why.description")}
             </p>
           </div>
 
@@ -656,11 +652,11 @@ export default function Companies() {
                 >
                   <stat.icon className="w-6 h-6" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-1">
+                <div className="text-3xl font-bold text-card-foreground mb-1">
                   {stat.format ? stat.number.toLocaleString() : stat.number}
                   {stat.suffix || ""}
                 </div>
-                <div className="text-sm text-gray-600 font-medium">
+                <div className="text-sm text-muted-foreground font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -671,13 +667,11 @@ export default function Companies() {
         {/* Enhanced CTA Section */}
         <div className="text-center creative-card p-12">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Looking for{" "}
-              <span className="gradient-text">something specific?</span>
+            <h2 className="text-3xl font-bold text-card-foreground mb-6">
+              {t("companies.cta.title")} <span className="gradient-text">{t("companies.cta.titleHighlight")}</span>
             </h2>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              Can't find what you're looking for? Browse by categories or
-              contact us to add a new business
+            <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+              {t("companies.cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button size="lg" className="creative-button" asChild>

@@ -193,7 +193,7 @@ export default function Index() {
   const { t, isRTL } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-background transition-colors">
       <Header />
 
       {/* Creative Hero Section */}
@@ -203,18 +203,15 @@ export default function Index() {
             <div className="inline-flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-lg">
               <Sparkles className="w-5 h-5 text-primary animate-pulse" />
               <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                Trusted by 10,000+ businesses
+                {t("home.hero.trusted")}
               </span>
             </div>
 
             <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
-              Find the Best
-              <span className="gradient-text block">Service Providers</span>
+              {t("home.hero.title")}<span className="gradient-text block">{t("home.hero.subtitle")}</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Read authentic reviews from real customers and discover trusted
-              businesses in your area. Make informed decisions with our
-              AI-powered insights.
+              {t("home.hero.description")}
             </p>
           </div>
 
@@ -229,7 +226,7 @@ export default function Index() {
                     }`}
                   />
                   <Input
-                    placeholder="Search for businesses, services, or professionals..."
+                    placeholder={t("home.hero.searchPlaceholder")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className={`h-14 text-lg border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all ${
@@ -244,7 +241,7 @@ export default function Index() {
                     }`}
                   />
                   <Input
-                    placeholder="Location (city, address, zip code)"
+                    placeholder={t("home.hero.locationPlaceholder")}
                     value={searchLocation}
                     onChange={(e) => setSearchLocation(e.target.value)}
                     className={`h-14 text-lg border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all ${
@@ -254,7 +251,7 @@ export default function Index() {
                 </div>
                 <Button className="creative-button h-14 px-8 text-lg">
                   <Zap className="w-5 h-5 mr-2" />
-                  Search
+                  {t("home.hero.searchButton")}
                 </Button>
               </div>
             </div>
@@ -263,10 +260,10 @@ export default function Index() {
           {/* Animated Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[
-              { number: "50K+", label: "Businesses Listed", icon: Building2 },
-              { number: "2M+", label: "Customer Reviews", icon: Users },
-              { number: "4.8★", label: "Average Rating", icon: Star },
-              { number: "99%", label: "Verified Reviews", icon: Award },
+              { number: "50K+", label: t("home.stats.businesses"), icon: Building2 },
+              { number: "2M+", label: t("home.stats.reviews"), icon: Users },
+              { number: "4.8★", label: t("home.stats.rating"), icon: Star },
+              { number: "99%", label: t("home.stats.verified"), icon: Award },
             ].map((stat, index) => (
               <div
                 key={index}
@@ -303,21 +300,21 @@ export default function Index() {
       </section>
 
       {/* Creative Categories */}
-      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
+      <section className="py-20 bg-background transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Popular <span className="gradient-text">Categories</span>
+              {t("home.categories.title")} <span className="gradient-text">{t("home.categories.subtitle")}</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Explore top-rated services in your area
+              {t("home.categories.description")}
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {categories.map((category, index) => (
               <Link key={category.name} to={category.path}>
-                <div className="creative-card group hover:scale-105 transition-all duration-300 bg-white dark:bg-gray-700">
+                <div className="creative-card group hover:scale-105 transition-all duration-300">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
@@ -354,7 +351,7 @@ export default function Index() {
               asChild
             >
               <Link to="/categories">
-                View All Categories
+                {t("home.categories.viewAll")}
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -368,10 +365,10 @@ export default function Index() {
           <div className="flex justify-between items-center mb-16">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                Top Rated <span className="gradient-text">Businesses</span>
+                {t("home.topCompanies.title")} <span className="gradient-text">{t("home.topCompanies.subtitle")}</span>
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300">
-                Discover excellence in service quality
+                {t("home.topCompanies.description")}
               </p>
             </div>
             <Button
@@ -387,7 +384,7 @@ export default function Index() {
             {topCompanies.map((company, index) => (
               <div
                 key={company.id}
-                className="creative-card group bg-white dark:bg-gray-700"
+                className="creative-card group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader className="pb-4 relative overflow-hidden">
@@ -451,7 +448,7 @@ export default function Index() {
 
                     <Button className="w-full creative-button" asChild>
                       <Link to={`/company/${company.id}`}>
-                        <span>View Profile</span>
+                        <span>{t("home.topCompanies.viewProfile")}</span>
                       </Link>
                     </Button>
                   </div>
@@ -463,14 +460,14 @@ export default function Index() {
       </section>
 
       {/* Enhanced Recent Reviews */}
-      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
+      <section className="py-20 bg-background transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Latest <span className="gradient-text">Reviews</span>
+              {t("home.reviews.title")} <span className="gradient-text">{t("home.reviews.subtitle")}</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              See what customers are saying
+              {t("home.reviews.description")}
             </p>
           </div>
 
@@ -478,7 +475,7 @@ export default function Index() {
             {recentReviews.map((review, index) => (
               <div
                 key={review.id}
-                className="creative-card group bg-white dark:bg-gray-700"
+                className="creative-card group"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <CardContent className="p-8">
@@ -528,11 +525,10 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="glass-morphism p-12 rounded-3xl max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-6">
-              Are you a business owner?
+              {t("home.cta.title")}
             </h2>
             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Join thousands of businesses that trust ReviewHub to connect with
-              customers and build their reputation.
+              {t("home.cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button
@@ -570,8 +566,7 @@ export default function Index() {
                 </span>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                The most trusted platform for finding and reviewing local
-                businesses.
+                {t("home.footer.description")}
               </p>
             </div>
 
@@ -582,19 +577,19 @@ export default function Index() {
                   to="/categories"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Browse Categories
+                  {t("home.footer.browseCategories")}
                 </Link>
                 <Link
                   to="/top-rated"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Top Rated
+                  {t("home.footer.topRated")}
                 </Link>
                 <Link
                   to="/write-review"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Write a Review
+                  {t("home.footer.writeReview")}
                 </Link>
               </div>
             </div>
@@ -606,19 +601,19 @@ export default function Index() {
                   to="/for-business"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  List Your Business
+                  {t("home.footer.listYourBusiness")}
                 </Link>
                 <Link
                   to="/business-dashboard"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Business Dashboard
+                  {t("home.footer.businessDashboard")}
                 </Link>
                 <Link
                   to="/pricing"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Pricing
+                  {t("home.footer.pricing")}
                 </Link>
               </div>
             </div>
@@ -630,25 +625,25 @@ export default function Index() {
                   to="/help"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Help Center
+                  {t("home.footer.helpCenter")}
                 </Link>
                 <Link
                   to="/contact"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Contact Us
+                  {t("home.footer.contactUs")}
                 </Link>
                 <Link
                   to="/privacy"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Privacy Policy
+                  {t("home.footer.privacyPolicy")}
                 </Link>
                 <Link
                   to="/terms"
                   className="text-gray-400 hover:text-white block transition-colors"
                 >
-                  Terms of Service
+                  {t("home.footer.termsOfService")}
                 </Link>
               </div>
             </div>
