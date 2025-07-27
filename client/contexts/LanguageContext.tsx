@@ -351,6 +351,11 @@ const translations = {
     "categories.fitnessSports.subcategory.2": "Personal Training",
     "categories.fitnessSports.subcategory.3": "Sports Clubs",
     "categories.fitnessSports.subcategory.4": "Equipment",
+    // Category Page
+    "category.notFound.title": "Category Not Found",
+    "category.notFound.description": "Sorry, we couldn't find this category.",
+    "category.notFound.backButton": "Back to Categories",
+    "category.backToCategories": "Back to Categories",
   },
   ar: {
     // Header
@@ -678,6 +683,11 @@ const translations = {
     "categories.fitnessSports.subcategory.2": "التدريب الشخصي",
     "categories.fitnessSports.subcategory.3": "الأندية الرياضية",
     "categories.fitnessSports.subcategory.4": "المعدات",
+    // Category Page
+    "category.notFound.title": "الفئة غير موجودة",
+    "category.notFound.description": "عذراً، لم نتمكن من العثور على هذه الفئة.",
+    "category.notFound.backButton": "العودة إلى الفئات",
+    "category.backToCategories": "العودة إلى الفئات",
   },
 };
 

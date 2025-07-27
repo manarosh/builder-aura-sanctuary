@@ -17,10 +17,10 @@ export default function Category() {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="max-w-xl mx-auto py-16 px-4 text-center">
-          <h1 className="text-3xl font-bold text-card-foreground mb-4">Category Not Found</h1>
-          <p className="text-muted-foreground mb-8">Sorry, we couldn't find this category.</p>
+          <h1 className="text-3xl font-bold text-card-foreground mb-4">{t("category.notFound.title")}</h1>
+          <p className="text-muted-foreground mb-8">{t("category.notFound.description")}</p>
           <Button asChild>
-            <Link to="/categories">Back to Categories</Link>
+            <Link to="/categories">{t("category.notFound.backButton")}</Link>
           </Button>
         </div>
       </div>
@@ -35,22 +35,28 @@ export default function Category() {
           <CardHeader>
             <div className="flex items-center gap-4 mb-2">
               <span className="text-4xl">{cat.icon}</span>
-              <CardTitle className="text-2xl text-card-foreground">{cat.name}</CardTitle>
+              <CardTitle className="text-2xl text-card-foreground">{t(cat.nameKey)}</CardTitle>
             </div>
-            <CardDescription className="text-muted-foreground mb-4">{cat.description}</CardDescription>
+            <CardDescription className="text-muted-foreground mb-4">{t(cat.descriptionKey)}</CardDescription>
           </CardHeader>
           <CardContent>
-            <h2 className="text-lg font-semibold text-card-foreground mb-2">Top Companies</h2>
+            <h2 className="text-lg font-semibold text-card-foreground mb-2">{t("categories.topCompanies")}</h2>
             <div className="space-y-2 mb-6">
-              {cat.topCompanies.map((company, idx) => (
+              {cat.topCompanyKeys.map((companyKey, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <Badge variant="secondary" className="text-muted-foreground">{company}</Badge>
+                  <Badge variant="secondary" className="text-muted-foreground">{t(companyKey)}</Badge>
                   <Star className="w-4 h-4 text-yellow-400" />
                 </div>
               ))}
             </div>
+            <h2 className="text-lg font-semibold text-card-foreground mb-2">{t("categories.subcategories")}</h2>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {cat.subcategoryKeys.map((subKey, idx) => (
+                <Badge key={idx} variant="secondary" className="text-muted-foreground">{t(subKey)}</Badge>
+              ))}
+            </div>
             <Button asChild className="w-full">
-              <Link to="/categories">Back to Categories</Link>
+              <Link to="/categories">{t("category.backToCategories")}</Link>
             </Button>
           </CardContent>
         </Card>
