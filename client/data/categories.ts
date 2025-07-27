@@ -1,6 +1,7 @@
 export const categories = [
   {
     name: "Healthcare",
+    slug: "healthcare",
     icon: "🏥",
     count: 1240,
     avgRating: 4.6,
@@ -20,6 +21,7 @@ export const categories = [
   },
   {
     name: "Legal Services",
+    slug: "legal-services",
     icon: "⚖️",
     count: 856,
     avgRating: 4.7,
@@ -35,6 +37,7 @@ export const categories = [
   },
   {
     name: "Home Services",
+    slug: "home-services",
     icon: "🏠",
     count: 2103,
     avgRating: 4.4,
@@ -50,6 +53,7 @@ export const categories = [
   },
   {
     name: "Restaurants",
+    slug: "restaurants",
     icon: "🍽️",
     count: 3421,
     avgRating: 4.3,
@@ -65,6 +69,7 @@ export const categories = [
   },
   {
     name: "Auto Services",
+    slug: "auto-services",
     icon: "🚗",
     count: 987,
     avgRating: 4.5,
@@ -84,6 +89,7 @@ export const categories = [
   },
   {
     name: "Beauty & Spa",
+    slug: "beauty-spa",
     icon: "💅",
     count: 654,
     avgRating: 4.4,
@@ -99,6 +105,7 @@ export const categories = [
   },
   {
     name: "Education",
+    slug: "education",
     icon: "📚",
     count: 432,
     avgRating: 4.6,
@@ -118,6 +125,7 @@ export const categories = [
   },
   {
     name: "Financial Services",
+    slug: "financial-services",
     icon: "💰",
     count: 321,
     avgRating: 4.5,
@@ -133,6 +141,7 @@ export const categories = [
   },
   {
     name: "Technology",
+    slug: "technology",
     icon: "💻",
     count: 789,
     avgRating: 4.4,
@@ -148,6 +157,7 @@ export const categories = [
   },
   {
     name: "Real Estate",
+    slug: "real-estate",
     icon: "🏢",
     count: 543,
     avgRating: 4.3,
@@ -163,6 +173,7 @@ export const categories = [
   },
   {
     name: "Entertainment",
+    slug: "entertainment",
     icon: "🎭",
     count: 412,
     avgRating: 4.5,
@@ -178,6 +189,7 @@ export const categories = [
   },
   {
     name: "Fitness & Sports",
+    slug: "fitness-sports",
     icon: "🏋️",
     count: 678,
     avgRating: 4.4,
