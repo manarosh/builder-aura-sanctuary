@@ -25,59 +25,14 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const values = [
-  {
-    icon: <Shield className="w-8 h-8" />,
-    title: "Trust & Transparency",
-    description:
-      "We believe in authentic reviews and transparent business practices that build genuine trust between customers and businesses.",
-  },
-  {
-    icon: <Heart className="w-8 h-8" />,
-    title: "Customer First",
-    description:
-      "Every feature we build puts customers first, ensuring they have the tools to make informed decisions and share honest feedback.",
-  },
-  {
-    icon: <Handshake className="w-8 h-8" />,
-    title: "Community Impact",
-    description:
-      "We're committed to supporting local businesses and communities by connecting them with customers who value quality service.",
-  },
-  {
-    icon: <Lightbulb className="w-8 h-8" />,
-    title: "Innovation",
-    description:
-      "We continuously innovate with AI-powered insights and modern technology to improve the review experience for everyone.",
-  },
+const valueIcons = [
+  <Shield className="w-8 h-8" />,
+  <Heart className="w-8 h-8" />,
+  <Handshake className="w-8 h-8" />,
+  <Lightbulb className="w-8 h-8" />,
 ];
 
-const team = [
-  {
-    name: "Emma Andersson",
-    role: "CEO & Founder",
-    image: "/placeholder.svg",
-    bio: "Former tech executive with 15+ years in building customer-focused platforms.",
-  },
-  {
-    name: "Lars Johansson",
-    role: "CTO",
-    image: "/placeholder.svg",
-    bio: "AI and machine learning expert passionate about creating intelligent review systems.",
-  },
-  {
-    name: "Sofia Lindström",
-    role: "Head of Customer Success",
-    image: "/placeholder.svg",
-    bio: "Dedicated to ensuring every business succeeds on our platform with exceptional support.",
-  },
-  {
-    name: "Marcus Nielsen",
-    role: "Head of Product",
-    image: "/placeholder.svg",
-    bio: "User experience designer focused on making review management simple and effective.",
-  },
-];
+const team = [0, 1, 2, 3];
 
 const stats = [
   {
@@ -267,7 +222,7 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {values.map((value, index) => (
+            {team.map((_, index) => (
               <div
                 key={index}
                 className="creative-card group text-center"
@@ -275,13 +230,13 @@ export default function About() {
               >
                 <CardContent className="p-6 sm:p-8">
                   <div className="creative-icon mx-auto mb-4 text-primary">
-                    {value.icon}
+                    {valueIcons[index]}
                   </div>
                   <h3 className="text-lg sm:text-xl font-semibold text-card-foreground mb-3 group-hover:text-primary transition-colors">
-                    {value.title}
+                    {t(`about.values.${index}.title`)}
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    {value.description}
+                    {t(`about.values.${index}.description`)}
                   </p>
                 </CardContent>
               </div>
@@ -303,28 +258,28 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {team.map((member, index) => (
+            {team.map((idx) => (
               <div
-                key={index}
+                key={idx}
                 className="creative-card text-center group"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 <CardContent className="p-6 sm:p-8">
                   <div className="relative mb-4 sm:mb-6">
                     <img
-                      src={member.image}
-                      alt={member.name}
+                      src="/placeholder.svg"
+                      alt={t(`about.team.${idx}.name`)}
                       className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105"
                     />
                   </div>
                   <h3 className="text-lg sm:text-xl font-semibold text-card-foreground mb-1 group-hover:text-primary transition-colors">
-                    {member.name}
+                    {t(`about.team.${idx}.name`)}
                   </h3>
                   <p className="text-primary font-medium mb-3 text-sm sm:text-base">
-                    {member.role}
+                    {t(`about.team.${idx}.role`)}
                   </p>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {member.bio}
+                    {t(`about.team.${idx}.bio`)}
                   </p>
                 </CardContent>
               </div>

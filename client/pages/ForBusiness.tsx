@@ -28,44 +28,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const features = [
-  {
-    icon: <BarChart3 className="w-6 h-6" />,
-    title: "Review Analytics",
-    description:
-      "Track your reputation with detailed analytics and insights about customer feedback.",
-  },
-  {
-    icon: <MessageSquare className="w-6 h-6" />,
-    title: "Respond to Reviews",
-    description:
-      "Engage with customers by responding to reviews and building stronger relationships.",
-  },
-  {
-    icon: <Users className="w-6 h-6" />,
-    title: "Customer Insights",
-    description:
-      "Understand your customers better with AI-powered sentiment analysis and trends.",
-  },
-  {
-    icon: <Shield className="w-6 h-6" />,
-    title: "Trust Verification",
-    description:
-      "Get verified status and build trust with our comprehensive verification process.",
-  },
-  {
-    icon: <Globe className="w-6 h-6" />,
-    title: "Enhanced Visibility",
-    description:
-      "Increase your online presence and reach more potential customers.",
-  },
-  {
-    icon: <Smartphone className="w-6 h-6" />,
-    title: "Mobile-Friendly",
-    description:
-      "Manage your business profile and reviews on the go with our mobile app.",
-  },
+const featureIcons = [
+  <BarChart3 className="w-6 h-6" />,
+  <MessageSquare className="w-6 h-6" />,
+  <Users className="w-6 h-6" />,
+  <Shield className="w-6 h-6" />,
+  <Globe className="w-6 h-6" />,
+  <Smartphone className="w-6 h-6" />,
 ];
+const features = [0, 1, 2, 3, 4, 5];
 
 const plans = [
   {
@@ -250,19 +221,19 @@ export default function ForBusiness() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {features.map((idx) => (
               <Card
-                key={index}
+                key={idx}
                 className="text-center hover:shadow-lg transition-shadow"
               >
                 <CardContent className="p-6">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary">
-                    {feature.icon}
+                    {featureIcons[idx]}
                   </div>
                   <h3 className="text-xl font-semibold text-card-foreground mb-2">
-                    {feature.title}
+                    {t(`forBusiness.features.${idx}.title`)}
                   </h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <p className="text-muted-foreground">{t(`forBusiness.features.${idx}.description`)}</p>
                 </CardContent>
               </Card>
             ))}
