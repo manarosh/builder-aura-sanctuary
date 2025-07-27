@@ -10,9 +10,7 @@ import { categories } from "@/data/categories";
 export default function Category() {
   const { category } = useParams();
   const { t } = useLanguage();
-  const cat = categories.find(
-    (c) => c.name.toLowerCase().replace(/\s+/g, "-") === category
-  );
+  const cat = categories.find((c) => c.slug === category);
 
   if (!cat) {
     return (
