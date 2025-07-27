@@ -152,6 +152,24 @@ const translations = {
     "about.cta.description": "Get in touch with our team to learn more about ReviewHub and how we can help your business grow",
     "about.cta.contactButton": "Contact Us",
     "about.cta.forBusinessButton": "For Business",
+
+    // Companies Page
+    "companies.hero.verified": "{count} verified companies",
+    "companies.hero.title": "Discover",
+    "companies.hero.titleHighlight": "Trusted Businesses",
+    "companies.hero.description": "Browse through our curated collection of verified companies and find the perfect service provider for your needs.",
+    "companies.hero.searchPlaceholder": "Search companies, services, or categories...",
+    "companies.popularSearches": "Popular Searches",
+    "companies.showingResults": "Showing {count} companies",
+    "companies.featured": "Featured",
+    "companies.reviews": "reviews",
+    "companies.services": "Services:",
+    "companies.why.title": "Why Choose",
+    "companies.why.titleHighlight": "ReviewHub Companies",
+    "companies.why.description": "All our listed companies meet high standards of quality and trust.",
+    "companies.cta.title": "Looking for",
+    "companies.cta.titleHighlight": "something specific?",
+    "companies.cta.description": "Can't find what you're looking for? Browse by categories or contact us to add a new business.",
   },
   ar: {
     // Header
@@ -280,6 +298,24 @@ const translations = {
     "about.cta.description": "تواصل مع فريقنا لمعرفة المزيد عن ReviewHub وكيف يمكننا مساعدة عملك على النمو",
     "about.cta.contactButton": "اتصل بنا",
     "about.cta.forBusinessButton": "للأعمال",
+
+    // Companies Page
+    "companies.hero.verified": "{count} شركة موثقة",
+    "companies.hero.title": "اكتشف",
+    "companies.hero.titleHighlight": "الشركات الموثوقة",
+    "companies.hero.description": "تصفح مجموعتنا المختارة من الشركات الموثوقة واعثر على مزود الخدمة المثالي لاحتياجاتك.",
+    "companies.hero.searchPlaceholder": "ابحث عن الشركات أو الخدمات أو الفئات...",
+    "companies.popularSearches": "عمليات البحث الشائعة",
+    "companies.showingResults": "عرض {count} شركة",
+    "companies.featured": "مميز",
+    "companies.reviews": "مراجعات",
+    "companies.services": "الخدمات:",
+    "companies.why.title": "لماذا تختار",
+    "companies.why.titleHighlight": "شركات ReviewHub",
+    "companies.why.description": "جميع الشركات المدرجة لدينا تفي بمعايير عالية من الجودة والثقة.",
+    "companies.cta.title": "تبحث عن",
+    "companies.cta.titleHighlight": "شيء محدد؟",
+    "companies.cta.description": "لا تجد ما تبحث عنه؟ تصفح حسب الفئات أو تواصل معنا لإضافة عمل جديد.",
   },
 };
 
