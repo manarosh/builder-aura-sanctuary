@@ -38,68 +38,59 @@ const stats = [
   {
     icon: <Users className="w-6 h-6 md:w-8 md:h-8" />,
     number: "10,000+",
-    label: "Businesses Trust Us",
-    description:
-      "Companies across Sweden use ReviewHub to manage their reputation",
+    labelKey: "about.stats.0.label",
+    descriptionKey: "about.stats.0.description",
   },
   {
     icon: <MessageCircle className="w-6 h-6 md:w-8 md:h-8" />,
     number: "2.1M+",
-    label: "Reviews Collected",
-    description:
-      "Authentic customer reviews helping others make informed decisions",
+    labelKey: "about.stats.1.label",
+    descriptionKey: "about.stats.1.description",
   },
   {
     icon: <TrendingUp className="w-6 h-6 md:w-8 md:h-8" />,
     number: "127%",
-    label: "Average Growth",
-    description:
-      "Increase in customer engagement for businesses using our platform",
+    labelKey: "about.stats.2.label",
+    descriptionKey: "about.stats.2.description",
   },
   {
     icon: <Star className="w-6 h-6 md:w-8 md:h-8" />,
     number: "4.8★",
-    label: "Platform Rating",
-    description: "Customer satisfaction score from businesses and consumers",
+    labelKey: "about.stats.3.label",
+    descriptionKey: "about.stats.3.description",
   },
 ];
 
 const milestones = [
   {
     year: "2019",
-    title: "Company Founded",
-    description:
-      "ReviewHub was born from a vision to create more trust in online business reviews.",
+    titleKey: "about.milestones.0.title",
+    descriptionKey: "about.milestones.0.description",
   },
   {
     year: "2020",
-    title: "First 1,000 Businesses",
-    description:
-      "Reached our first milestone with small businesses across Stockholm and Gothenburg.",
+    titleKey: "about.milestones.1.title",
+    descriptionKey: "about.milestones.1.description",
   },
   {
     year: "2021",
-    title: "AI Integration",
-    description:
-      "Launched AI-powered review analysis and sentiment tracking features.",
+    titleKey: "about.milestones.2.title",
+    descriptionKey: "about.milestones.2.description",
   },
   {
     year: "2022",
-    title: "National Expansion",
-    description:
-      "Expanded across Sweden with businesses in all major cities joining our platform.",
+    titleKey: "about.milestones.3.title",
+    descriptionKey: "about.milestones.3.description",
   },
   {
     year: "2023",
-    title: "10,000+ Businesses",
-    description:
-      "Reached 10,000 verified businesses and 2 million customer reviews.",
+    titleKey: "about.milestones.4.title",
+    descriptionKey: "about.milestones.4.description",
   },
   {
     year: "2024",
-    title: "Advanced Analytics",
-    description:
-      "Launched comprehensive business intelligence and customer insight tools.",
+    titleKey: "about.milestones.5.title",
+    descriptionKey: "about.milestones.5.description",
   },
 ];
 
@@ -196,10 +187,10 @@ export default function About() {
                       {stat.number}
                     </div>
                     <div className="text-xs sm:text-sm font-medium text-card-foreground mb-2 leading-tight">
-                      {stat.label}
+                      {t(stat.labelKey)}
                     </div>
                     <div className="text-xs text-muted-foreground leading-tight">
-                      {stat.description}
+                      {t(stat.descriptionKey)}
                     </div>
                   </CardContent>
                 </div>
@@ -311,10 +302,10 @@ export default function About() {
                 <CardContent className="p-6">
                   <Badge className="mb-4">{milestone.year}</Badge>
                   <h3 className="text-lg sm:text-xl font-semibold text-card-foreground mb-3">
-                    {milestone.title}
+                    {t(milestone.titleKey)}
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    {milestone.description}
+                    {t(milestone.descriptionKey)}
                   </p>
                 </CardContent>
               </div>
@@ -340,10 +331,10 @@ export default function About() {
                       <CardContent className="p-8">
                         <Badge className="mb-4">{milestone.year}</Badge>
                         <h3 className="text-xl font-semibold text-card-foreground mb-3">
-                          {milestone.title}
+                          {t(milestone.titleKey)}
                         </h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          {milestone.description}
+                          {t(milestone.descriptionKey)}
                         </p>
                       </CardContent>
                     </div>
