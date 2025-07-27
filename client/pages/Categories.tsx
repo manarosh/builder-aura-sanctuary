@@ -199,7 +199,7 @@ export default function Categories() {
                     <div className="text-5xl">{category.icon}</div>
                     <div className="flex-1">
                       <CardTitle className="text-xl group-hover:text-primary transition-colors text-card-foreground">
-                        {category.name}
+                        {t(category.nameKey)}
                       </CardTitle>
                       <CardDescription className="mt-1 text-muted-foreground">
                         {category.count.toLocaleString()} businesses
@@ -210,7 +210,7 @@ export default function Categories() {
                 <CardContent>
                   <div className="space-y-4">
                     <p className="text-muted-foreground text-sm">
-                      {category.description}
+                      {t(category.descriptionKey)}
                     </p>
                     <div className="flex items-center justify-between">
                       <StarRating rating={category.avgRating} />
@@ -249,7 +249,7 @@ export default function Categories() {
                               variant="outline"
                               className="text-xs text-muted-foreground"
                             >
-                              {sub}
+                              {t(sub)}
                             </Badge>
                           ))}
                         {category.subcategories.length > 4 && (
