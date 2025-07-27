@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import Contact from "./pages/Contact";
+import Category from "./pages/Category";
 
 const queryClient = new QueryClient();
 
@@ -35,16 +36,16 @@ const App = () => (
               <Route path="/company/:id" element={<CompanyProfile />} />
               <Route path="/companies" element={<Companies />} />
               <Route path="/categories" element={<Categories />} />
+              <Route path="/categories/:category" element={<Category />} />
               <Route
-                path="/categories/:category"
+                path="/for-business"
                 element={
                   <PlaceholderPage
-                    title="Category Listings"
-                    description="Browse all businesses in this category with advanced filtering options."
+                    title="For Business"
+                    description="Discover how ReviewHub can help your business grow."
                   />
                 }
               />
-              <Route path="/for-business" element={<ForBusiness />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
