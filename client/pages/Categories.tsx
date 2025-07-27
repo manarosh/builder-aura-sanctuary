@@ -288,7 +288,7 @@ export default function Categories() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-background transition-colors">
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -302,7 +302,7 @@ export default function Categories() {
           </p>
 
           {/* Search Bar */}
-          <Card className="max-w-4xl mx-auto">
+          <Card className="max-w-4xl mx-auto bg-card text-card-foreground border border-card">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
@@ -388,7 +388,7 @@ export default function Categories() {
           {sortedCategories.map((category) => (
             <Card
               key={category.name}
-              className="hover:shadow-medium transition-shadow group cursor-pointer"
+              className="hover:shadow-medium transition-shadow group cursor-pointer bg-card text-card-foreground border border-card"
             >
               <Link
                 to={`/categories/${category.name.toLowerCase().replace(/\s+/g, "-")}`}
@@ -477,7 +477,7 @@ export default function Categories() {
         </div>
 
         {/* Statistics Section */}
-        <div className="mt-16 bg-white rounded-lg shadow-soft p-8">
+        <div className="mt-16 bg-card text-card-foreground border border-card rounded-lg shadow-soft p-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               {t("categories.platformStats")}

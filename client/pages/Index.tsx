@@ -193,7 +193,7 @@ export default function Index() {
   const { t, isRTL } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-background transition-colors">
       <Header />
 
       {/* Creative Hero Section */}
@@ -300,7 +300,7 @@ export default function Index() {
       </section>
 
       {/* Creative Categories */}
-      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
+      <section className="py-20 bg-background transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -314,7 +314,7 @@ export default function Index() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {categories.map((category, index) => (
               <Link key={category.name} to={category.path}>
-                <div className="creative-card group hover:scale-105 transition-all duration-300 bg-white dark:bg-gray-700">
+                <div className="creative-card group hover:scale-105 transition-all duration-300">
                   <CardContent className="p-8 text-center relative overflow-hidden">
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
@@ -384,7 +384,7 @@ export default function Index() {
             {topCompanies.map((company, index) => (
               <div
                 key={company.id}
-                className="creative-card group bg-white dark:bg-gray-700"
+                className="creative-card group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader className="pb-4 relative overflow-hidden">
@@ -460,7 +460,7 @@ export default function Index() {
       </section>
 
       {/* Enhanced Recent Reviews */}
-      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
+      <section className="py-20 bg-background transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -475,7 +475,7 @@ export default function Index() {
             {recentReviews.map((review, index) => (
               <div
                 key={review.id}
-                className="creative-card group bg-white dark:bg-gray-700"
+                className="creative-card group"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <CardContent className="p-8">

@@ -151,7 +151,7 @@
   }
 
   .creative-card {
-    @apply relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700;
+    @apply relative overflow-hidden rounded-2xl bg-card text-card-foreground border border-card shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2;
   }
 
   .creative-card::before {
