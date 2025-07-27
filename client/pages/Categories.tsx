@@ -76,8 +76,8 @@ export default function Categories() {
 
   const filteredCategories = categories.filter(
     (category) =>
-      category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      category.description.toLowerCase().includes(searchQuery.toLowerCase()),
+      t(category.nameKey).toLowerCase().includes(searchQuery.toLowerCase()) ||
+      t(category.descriptionKey).toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   const sortedCategories = [...filteredCategories].sort((a, b) => {
@@ -87,7 +87,7 @@ export default function Categories() {
       case "rating":
         return b.avgRating - a.avgRating;
       case "name":
-        return a.name.localeCompare(b.name);
+        return t(a.nameKey).localeCompare(t(b.nameKey));
       default:
         return 0;
     }
