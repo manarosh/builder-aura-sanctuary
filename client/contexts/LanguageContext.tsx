@@ -320,18 +320,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
   };
 
   const t = (key: string): string => {
-    const keys = key.split(".");
-    let value: any = translations[language];
-
-    for (const k of keys) {
-      if (value && typeof value === "object") {
-        value = value[k];
-      } else {
-        break;
-      }
-    }
-
-    return typeof value === "string" ? value : key;
+    return translations[language][key] || key;
   };
 
   useEffect(() => {
