@@ -259,7 +259,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground mb-4">
-              {t("about.values.title")}
+              {t("about.values.title")} <span className="gradient-text">{t("about.values.titleHighlight")}</span>
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               {t("about.values.description")}
@@ -295,7 +295,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground mb-4">
-              {t("about.team.title")}
+              {t("about.team.title")} <span className="gradient-text">{t("about.team.titleHighlight")}</span>
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               {t("about.team.description")}
@@ -338,7 +338,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground mb-4">
-              {t("about.journey.title")}
+              {t("about.journey.title")} <span className="gradient-text">{t("about.journey.titleHighlight")}</span>
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               {t("about.journey.description")}
