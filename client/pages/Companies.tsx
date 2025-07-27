@@ -339,23 +339,23 @@ export default function Companies() {
         <div className="text-center mb-16 relative">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-full blur-3xl -z-10"></div>
 
-          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-lg">
+          <div className="inline-flex items-center space-x-2 bg-card text-card-foreground border border-card rounded-full px-4 py-2 mb-6 shadow-lg">
             <Building2 className="w-5 h-5 text-primary animate-pulse" />
             <span className="text-sm font-semibold text-gray-700">
               {t("companies.hero.verified", { count: companies.length })}
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-card-foreground mb-6">
             {t("companies.hero.title")} <span className="gradient-text">{t("companies.hero.titleHighlight")}</span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
             {t("companies.hero.description")}
           </p>
 
           {/* Enhanced Search Bar */}
           <div className="max-w-4xl mx-auto mb-8">
-            <div className="glass-morphism p-6 rounded-3xl backdrop-blur-xl">
+            <div className="glass-morphism p-6 rounded-3xl">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative group">
                   <Search className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors" />
@@ -363,7 +363,7 @@ export default function Companies() {
                     placeholder={t("companies.hero.searchPlaceholder")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all"
+                    className="pl-12 h-14 text-lg border-0 bg-card text-card-foreground rounded-2xl shadow-md focus:shadow-lg transition-all"
                   />
                 </div>
                 <div className="flex-1 relative group">
@@ -372,7 +372,7 @@ export default function Companies() {
                     value={selectedLocation}
                     onValueChange={setSelectedLocation}
                   >
-                    <SelectTrigger className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg">
+                    <SelectTrigger className="pl-12 h-14 text-lg border-0 bg-card text-card-foreground rounded-2xl shadow-md focus:shadow-lg">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -404,7 +404,7 @@ export default function Companies() {
 
         {/* Popular Searches */}
         <div className="mb-12">
-          <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+          <h3 className="text-lg font-semibold text-card-foreground mb-6 flex items-center">
             <Sparkles className="w-5 h-5 mr-2 text-primary" />
             {t("companies.popularSearches")}
           </h3>
@@ -413,7 +413,7 @@ export default function Companies() {
               <Badge
                 key={index}
                 variant="secondary"
-                className="cursor-pointer hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 py-2 px-4 text-sm bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg"
+                className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-300 transform hover:scale-105 py-2 px-4 text-sm bg-card text-card-foreground border border-card shadow-md hover:shadow-lg"
                 onClick={() => setSearchQuery(search)}
               >
                 {search}
@@ -424,15 +424,15 @@ export default function Companies() {
 
         {/* Filters and Sort */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl px-4 py-2 shadow-md">
-            <p className="text-gray-600 font-medium">
+          <div className="bg-card text-card-foreground border border-card rounded-xl px-4 py-2 shadow-md">
+            <p className="text-muted-foreground font-medium">
               {t("companies.showingResults", { count: sortedCompanies.length })}
             </p>
           </div>
 
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-48 bg-white/80 backdrop-blur-sm border-0 shadow-md hover:shadow-lg transition-all">
+              <SelectTrigger className="w-48 bg-card text-card-foreground border border-card shadow-md hover:shadow-lg transition-all">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
