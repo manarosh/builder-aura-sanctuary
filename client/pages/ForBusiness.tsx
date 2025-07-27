@@ -26,6 +26,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const features = [
   {
@@ -152,6 +153,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function ForBusiness() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -162,26 +164,24 @@ export default function ForBusiness() {
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
             <div>
               <Badge className="mb-4 bg-primary/10 text-primary">
-                Trusted by 10,000+ Businesses
+                {t("forBusiness.hero.badge")}
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Grow Your Business with
-                <span className="text-primary block">Customer Reviews</span>
+                {t("forBusiness.hero.title")}<span className="text-primary block">{t("forBusiness.hero.titleHighlight")}</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Join thousands of successful businesses using ReviewHub to build
-                trust, attract customers, and grow their reputation online.
+                {t("forBusiness.hero.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="h-12 px-8">
-                  Get Started Free
+                  {t("forBusiness.hero.ctaPrimary")}
                 </Button>
                 <Button size="lg" variant="outline" className="h-12 px-8">
-                  Schedule Demo
+                  {t("forBusiness.hero.ctaSecondary")}
                 </Button>
               </div>
               <p className="text-sm text-gray-500 mt-4">
-                ✓ No credit card required ✓ Setup in 5 minutes ✓ Cancel anytime
+                {t("forBusiness.hero.note")}
               </p>
             </div>
 

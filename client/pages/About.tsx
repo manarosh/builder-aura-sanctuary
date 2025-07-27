@@ -23,6 +23,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const values = [
   {
@@ -148,6 +149,7 @@ const milestones = [
 ];
 
 export default function About() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -157,19 +159,13 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <Badge className="mb-4 bg-primary/10 text-primary animate-fade-in">
-              About ReviewHub
+              {t("about.hero.badge")}
             </Badge>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Building Trust Between
-              <span className="gradient-text block">
-                Businesses & Customers
-              </span>
+              {t("about.hero.title")}<span className="gradient-text block">{t("about.hero.titleHighlight")}</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed px-4 sm:px-0">
-              We're on a mission to create the most trusted platform for
-              business reviews in Sweden, helping customers make informed
-              decisions while empowering businesses to build authentic
-              reputations.
+              {t("about.hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
               <Button
@@ -178,7 +174,7 @@ export default function About() {
                 asChild
               >
                 <Link to="/for-business">
-                  <span>Join as Business</span>
+                  <span>{t("about.hero.ctaPrimary")}</span>
                 </Link>
               </Button>
               <Button
@@ -187,7 +183,7 @@ export default function About() {
                 className="border-2 hover:bg-primary hover:text-white transition-all w-full sm:w-auto"
                 asChild
               >
-                <Link to="/companies">Explore Companies</Link>
+                <Link to="/companies">{t("about.hero.ctaSecondary")}</Link>
               </Button>
             </div>
           </div>
@@ -200,36 +196,31 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                Our Mission
+                {t("about.mission.title")}
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
-                To create a transparent, trustworthy ecosystem where authentic
-                customer reviews help businesses improve and customers make
-                confident decisions. We believe that honest feedback benefits
-                everyone.
+                {t("about.mission.description1")}
               </p>
               <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed">
-                By combining advanced AI technology with human insight, we're
-                building the future of business reviews - one that's fair,
-                accurate, and beneficial for all stakeholders.
+                {t("about.mission.description2")}
               </p>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-700 text-sm sm:text-base">
-                    100% authentic, verified reviews
+                    {t("about.mission.feature1")}
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-700 text-sm sm:text-base">
-                    AI-powered review analysis and insights
+                    {t("about.mission.feature2")}
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-700 text-sm sm:text-base">
-                    Support for businesses of all sizes
+                    {t("about.mission.feature3")}
                   </span>
                 </div>
               </div>
@@ -268,10 +259,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Our <span className="gradient-text">Values</span>
+              {t("about.values.title")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
-              The principles that guide everything we do at ReviewHub
+              {t("about.values.description")}
             </p>
           </div>
 
@@ -304,11 +295,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Meet Our <span className="gradient-text">Team</span>
+              {t("about.team.title")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
-              The passionate people behind ReviewHub who are dedicated to
-              building trust online
+              {t("about.team.description")}
             </p>
           </div>
 
@@ -348,10 +338,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Our <span className="gradient-text">Journey</span>
+              {t("about.journey.title")}
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
-              From startup to Sweden's most trusted review platform
+              {t("about.journey.description")}
             </p>
           </div>
 
@@ -425,11 +415,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="glass-morphism p-8 sm:p-12 rounded-3xl max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
-              Want to Learn More?
+              {t("about.cta.title")}
             </h2>
             <p className="text-lg sm:text-xl text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
-              Get in touch with our team to learn more about ReviewHub and how
-              we can help your business grow
+              {t("about.cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0">
               <Button
@@ -438,7 +427,7 @@ export default function About() {
                 className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-semibold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 w-full sm:w-auto"
                 asChild
               >
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact">{t("about.cta.contactButton")}</Link>
               </Button>
               <Button
                 size="lg"
@@ -446,7 +435,7 @@ export default function About() {
                 className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-semibold bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary transition-all transform hover:scale-105 w-full sm:w-auto"
                 asChild
               >
-                <Link to="/for-business">For Business</Link>
+                <Link to="/for-business">{t("about.cta.forBusinessButton")}</Link>
               </Button>
             </div>
           </div>
