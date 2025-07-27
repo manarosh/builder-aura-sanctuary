@@ -295,11 +295,10 @@ export default function Categories() {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Business Categories
+            {t("categories.title")}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-            Explore businesses by category and find exactly what you're looking
-            for
+            {t("categories.description")}
           </p>
 
           {/* Search Bar */}
@@ -309,7 +308,7 @@ export default function Categories() {
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
-                    placeholder="Search categories or services..."
+                    placeholder={t("categories.searchPlaceholder")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10 h-12"
@@ -346,7 +345,7 @@ export default function Categories() {
         {/* Popular Searches */}
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Popular Searches
+            {t("categories.popularSearches")}
           </h3>
           <div className="flex flex-wrap gap-2">
             {popularSearches.map((search, index) => (
@@ -366,7 +365,7 @@ export default function Categories() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
           <div>
             <p className="text-gray-600">
-              Showing {sortedCategories.length} categories
+              {t("categories.showingResults", { count: sortedCategories.length })}
             </p>
           </div>
 
@@ -423,7 +422,7 @@ export default function Categories() {
 
                     <div>
                       <h4 className="font-medium text-gray-900 mb-2">
-                        Top Companies:
+                        {t("categories.topCompanies")}
                       </h4>
                       <div className="space-y-1">
                         {category.topCompanies
@@ -442,7 +441,7 @@ export default function Categories() {
 
                     <div>
                       <h4 className="font-medium text-gray-900 mb-2">
-                        Subcategories:
+                        {t("categories.subcategories")}
                       </h4>
                       <div className="flex flex-wrap gap-1">
                         {category.subcategories
@@ -458,7 +457,7 @@ export default function Categories() {
                           ))}
                         {category.subcategories.length > 4 && (
                           <Badge variant="outline" className="text-xs">
-                            +{category.subcategories.length - 4} more
+                            {t("categories.moreSubcategories", { count: category.subcategories.length - 4 })}
                           </Badge>
                         )}
                       </div>
@@ -466,7 +465,7 @@ export default function Categories() {
 
                     <div className="flex items-center justify-between pt-4 border-t">
                       <span className="text-sm text-gray-600">
-                        View all businesses
+                        {t("categories.viewAllBusinesses")}
                       </span>
                       <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" />
                     </div>
@@ -481,10 +480,10 @@ export default function Categories() {
         <div className="mt-16 bg-white rounded-lg shadow-soft p-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Platform Statistics
+              {t("categories.platformStats")}
             </h2>
             <p className="text-gray-600">
-              Trusted by thousands of businesses and customers
+              {/* Consider making this translatable if needed */}
             </p>
           </div>
 
@@ -530,10 +529,10 @@ export default function Categories() {
         {/* CTA Section */}
         <div className="mt-16 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Can't find what you're looking for?
+            {t("categories.cantFind")}
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Browse all businesses or suggest a new category for our platform
+            {t("categories.cantFindDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>

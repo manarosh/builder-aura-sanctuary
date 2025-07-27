@@ -40,6 +40,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Mock data - in real app this would come from API
 const companyData = {
@@ -179,6 +180,7 @@ export default function CompanyProfile() {
   const { id } = useParams();
   const [selectedFilter, setSelectedFilter] = useState("newest");
   const [showAllHours, setShowAllHours] = useState(false);
+  const { t } = useLanguage();
 
   const ratingDistribution = [
     { stars: 5, count: 2150, percentage: 76 },
@@ -196,15 +198,15 @@ export default function CompanyProfile() {
         {/* Breadcrumb */}
         <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
           <Link to="/" className="hover:text-gray-900">
-            Home
+            {t("header.home")}
           </Link>
           <span>/</span>
           <Link to="/categories" className="hover:text-gray-900">
-            Categories
+            {t("header.categories")}
           </Link>
           <span>/</span>
           <Link to="/categories/healthcare" className="hover:text-gray-900">
-            Healthcare
+            {t("companyProfile.breadcrumbCategory")}
           </Link>
           <span>/</span>
           <span className="text-gray-900">{companyData.name}</span>
@@ -239,11 +241,11 @@ export default function CompanyProfile() {
                   <div className="flex items-center space-x-2">
                     <Button variant="outline" size="sm">
                       <Heart className="w-4 h-4 mr-2" />
-                      Save
+                      {t("common.save")}
                     </Button>
                     <Button variant="outline" size="sm">
                       <Share2 className="w-4 h-4 mr-2" />
-                      Share
+                      {t("companyProfile.share")}
                     </Button>
                   </div>
                 </div>
@@ -255,7 +257,7 @@ export default function CompanyProfile() {
                       {companyData.rating}
                     </span>
                     <span className="text-gray-600">
-                      ({companyData.reviewCount.toLocaleString()} reviews)
+                      ({companyData.reviewCount.toLocaleString()}) {t("companyProfile.reviews")}
                     </span>
                   </div>
                   <div className="flex items-center space-x-2 text-gray-600">
@@ -317,7 +319,7 @@ export default function CompanyProfile() {
             <Tabs defaultValue="reviews" className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="reviews">
-                  Reviews ({companyData.reviewCount})
+                  {t("companyProfile.reviews")} ({companyData.reviewCount})
                 </TabsTrigger>
                 <TabsTrigger value="insights">AI Insights</TabsTrigger>
                 <TabsTrigger value="photos">Photos</TabsTrigger>
@@ -357,7 +359,7 @@ export default function CompanyProfile() {
                           showNumber={false}
                         />
                         <p className="text-gray-600 mt-2">
-                          {companyData.reviewCount.toLocaleString()} reviews
+                          {companyData.reviewCount.toLocaleString()} {t("companyProfile.reviews")}
                         </p>
                       </div>
 
@@ -457,7 +459,7 @@ export default function CompanyProfile() {
 
                 <div className="text-center">
                   <Button variant="outline" size="lg">
-                    Load More Reviews
+                    {t("companyProfile.loadMore")}
                   </Button>
                 </div>
               </TabsContent>
@@ -467,23 +469,23 @@ export default function CompanyProfile() {
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <TrendingUp className="w-5 h-5 mr-2" />
-                      AI-Powered Review Analysis
+                      {t("companyProfile.aiAnalysis")}
                     </CardTitle>
                     <CardDescription>
-                      Insights generated from {companyData.reviewCount} customer
-                      reviews
+                      {t("companyProfile.aiInsightsDescription", { count: companyData.reviewCount })}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
                       <h4 className="font-semibold mb-3">Summary</h4>
+                      {/* Consider making this translatable if needed */}
                       <p className="text-gray-700">{aiInsights.summary}</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <h4 className="font-semibold mb-3 text-green-700">
-                          Most Mentioned Positives
+                          {t("companyProfile.positives")}
                         </h4>
                         <div className="space-y-2">
                           {aiInsights.positiveKeywords.map((keyword) => (
@@ -505,7 +507,7 @@ export default function CompanyProfile() {
 
                       <div>
                         <h4 className="font-semibold mb-3 text-red-700">
-                          Areas for Improvement
+                          {t("companyProfile.negatives")}
                         </h4>
                         <div className="space-y-2">
                           {aiInsights.negativeKeywords.map((keyword) => (
@@ -528,6 +530,7 @@ export default function CompanyProfile() {
 
                     <div>
                       <h4 className="font-semibold mb-3">Sentiment Analysis</h4>
+                      {/* Consider making this translatable if needed */}
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
                           <span className="text-sm">Positive</span>
@@ -575,8 +578,9 @@ export default function CompanyProfile() {
                 <Card>
                   <CardHeader>
                     <CardTitle>Photos & Media</CardTitle>
+                    {/* Consider making this translatable if needed */}
                     <CardDescription>
-                      Images uploaded by customers and business
+                      {t("companyProfile.photosDescription")}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -603,6 +607,7 @@ export default function CompanyProfile() {
             <Card>
               <CardHeader>
                 <CardTitle>Contact Information</CardTitle>
+                {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -633,6 +638,7 @@ export default function CompanyProfile() {
             <Card>
               <CardHeader>
                 <CardTitle>Business Hours</CardTitle>
+                {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -660,18 +666,22 @@ export default function CompanyProfile() {
             <Card>
               <CardHeader>
                 <CardTitle>Company Details</CardTitle>
+                {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="text-gray-600">Founded</span>
+                  {/* Consider making this translatable if needed */}
                   <span className="font-medium">{companyData.founded}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-600">Employees</span>
+                  {/* Consider making this translatable if needed */}
                   <span className="font-medium">{companyData.employees}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-600">Trust Level</span>
+                  {/* Consider making this translatable if needed */}
                   <TrustBadge level={companyData.trustLevel} />
                 </div>
               </CardContent>

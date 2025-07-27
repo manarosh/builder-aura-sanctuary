@@ -36,6 +36,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Enhanced mock data for companies
 const companies = [
@@ -301,6 +302,7 @@ export default function Companies() {
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
   const [sortBy, setSortBy] = useState("featured");
   const [showFilters, setShowFilters] = useState(false);
+  const { t } = useLanguage();
 
   const filteredCompanies = companies.filter(
     (company) =>
@@ -340,16 +342,15 @@ export default function Companies() {
           <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 shadow-lg">
             <Building2 className="w-5 h-5 text-primary animate-pulse" />
             <span className="text-sm font-semibold text-gray-700">
-              {companies.length} verified companies
+              {t("companies.hero.verified", { count: companies.length })}
             </span>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Discover <span className="gradient-text">Trusted Businesses</span>
+            {t("companies.hero.title")} <span className="gradient-text">{t("companies.hero.titleHighlight")}</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Browse through our curated collection of verified companies and find
-            the perfect service provider for your needs
+            {t("companies.hero.description")}
           </p>
 
           {/* Enhanced Search Bar */}
@@ -359,7 +360,7 @@ export default function Companies() {
                 <div className="flex-1 relative group">
                   <Search className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-primary transition-colors" />
                   <Input
-                    placeholder="Search companies, services, or categories..."
+                    placeholder={t("companies.hero.searchPlaceholder")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-12 h-14 text-lg border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-md focus:shadow-lg transition-all"
@@ -405,7 +406,7 @@ export default function Companies() {
         <div className="mb-12">
           <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
             <Sparkles className="w-5 h-5 mr-2 text-primary" />
-            Popular Searches
+            {t("companies.popularSearches")}
           </h3>
           <div className="flex flex-wrap gap-3">
             {popularSearches.map((search, index) => (
@@ -425,11 +426,7 @@ export default function Companies() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
           <div className="bg-white/80 backdrop-blur-sm rounded-xl px-4 py-2 shadow-md">
             <p className="text-gray-600 font-medium">
-              Showing{" "}
-              <span className="text-primary font-bold">
-                {sortedCompanies.length}
-              </span>{" "}
-              companies
+              {t("companies.showingResults", { count: sortedCompanies.length })}
             </p>
           </div>
 
@@ -469,7 +466,7 @@ export default function Companies() {
                     <div className="absolute top-4 right-4 z-20">
                       <Badge className="bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg animate-pulse">
                         <Award className="w-3 h-3 mr-1" />
-                        Featured
+                        {t("companies.featured")}
                       </Badge>
                     </div>
                   )}
@@ -513,7 +510,7 @@ export default function Companies() {
                     <div className="flex items-center justify-between">
                       <StarRating rating={company.rating} />
                       <span className="text-gray-600 text-sm font-medium">
-                        ({company.reviewCount.toLocaleString()} reviews)
+                        ({company.reviewCount.toLocaleString()} {t("companies.reviews")})
                       </span>
                     </div>
 
@@ -528,7 +525,7 @@ export default function Companies() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
                         <Zap className="w-4 h-4 mr-2 text-primary" />
-                        Services:
+                        {t("companies.services")}
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {company.services.slice(0, 3).map((service, index) => (
@@ -556,11 +553,11 @@ export default function Companies() {
                         <Clock className="w-4 h-4 mr-2" />
                         {company.isOpen ? (
                           <span className="text-green-600 font-semibold">
-                            Open now
+                            {t("common.openNow")}
                           </span>
                         ) : (
                           <span className="text-red-600 font-semibold">
-                            Closed
+                            {t("common.closed")}
                           </span>
                         )}
                       </div>
@@ -577,7 +574,7 @@ export default function Companies() {
                           className="hover:bg-primary hover:text-white transition-colors"
                         >
                           <Heart className="w-4 h-4 mr-1" />
-                          Save
+                          {t("common.save")}
                         </Button>
                         <Button
                           size="sm"
@@ -585,7 +582,7 @@ export default function Companies() {
                           className="hover:bg-primary hover:text-white transition-colors"
                         >
                           <Eye className="w-4 h-4 mr-1" />
-                          View
+                          {t("common.view")}
                         </Button>
                       </div>
                       <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors transform group-hover:translate-x-1" />
@@ -601,11 +598,10 @@ export default function Companies() {
         <div className="creative-card p-12 mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose{" "}
-              <span className="gradient-text">ReviewHub Companies</span>
+              {t("companies.why.title")} <span className="gradient-text">{t("companies.why.titleHighlight")}</span>
             </h2>
             <p className="text-xl text-gray-600">
-              All our listed companies meet high standards of quality and trust
+              {t("companies.why.description")}
             </p>
           </div>
 
@@ -672,12 +668,10 @@ export default function Companies() {
         <div className="text-center creative-card p-12">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Looking for{" "}
-              <span className="gradient-text">something specific?</span>
+              {t("companies.cta.title")} <span className="gradient-text">{t("companies.cta.titleHighlight")}</span>
             </h2>
             <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              Can't find what you're looking for? Browse by categories or
-              contact us to add a new business
+              {t("companies.cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button size="lg" className="creative-button" asChild>
