@@ -18,6 +18,7 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PlaceholderPage from "./pages/PlaceholderPage";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -101,15 +102,7 @@ const App = () => (
                   />
                 }
               />
-              <Route
-                path="/contact"
-                element={
-                  <PlaceholderPage
-                    title="Contact Us"
-                    description="Get in touch with our support team for assistance."
-                  />
-                }
-              />
+              <Route path="/contact" element={<Contact />} />
               <Route
                 path="/privacy"
                 element={
