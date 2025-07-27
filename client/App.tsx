@@ -37,15 +37,7 @@ const App = () => (
               <Route path="/companies" element={<Companies />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/categories/:category" element={<Category />} />
-              <Route
-                path="/for-business"
-                element={
-                  <PlaceholderPage
-                    title="For Business"
-                    description="Discover how ReviewHub can help your business grow."
-                  />
-                }
-              />
+              <Route path="/for-business" element={<ForBusiness />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
