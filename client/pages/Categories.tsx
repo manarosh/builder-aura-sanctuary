@@ -191,95 +191,88 @@ export default function Categories() {
 
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedCategories.map((category) => (
-            <Card
-              key={category.name}
-              className="hover:shadow-medium transition-shadow group cursor-pointer bg-card text-card-foreground border border-card"
-            >
-              <Link
-                to={`/categories/${category.name.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="text-5xl">{category.icon}</div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors text-card-foreground">
-                        {category.name}
-                      </CardTitle>
-                      <CardDescription className="mt-1 text-muted-foreground">
-                        {category.count.toLocaleString()} businesses
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-
-                <CardContent>
-                  <div className="space-y-4">
-                    <p className="text-muted-foreground text-sm">
-                      {category.description}
-                    </p>
-
-                    <div className="flex items-center justify-between">
-                      <StarRating rating={category.avgRating} />
-                      <span className="text-muted-foreground text-sm">
-                        Average rating
-                      </span>
-                    </div>
-
-                    <div>
-                      <h4 className="font-medium text-card-foreground mb-2">
-                        {t("categories.topCompanies")}
-                      </h4>
-                      <div className="space-y-1">
-                        {category.topCompanies
-                          .slice(0, 3)
-                          .map((company, index) => (
-                            <div
-                              key={index}
-                              className="text-sm text-muted-foreground flex items-center"
-                            >
-                              <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                              {company}
-                            </div>
-                          ))}
+          {sortedCategories.map((category) => {
+            const slug = category.name.toLowerCase().replace(/\s+/g, "-");
+            return (
+              <Link key={category.name} to={`/categories/${slug}`}>
+                <Card className="hover:shadow-medium transition-shadow group cursor-pointer bg-card text-card-foreground border border-card">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="text-5xl">{category.icon}</div>
+                      <div className="flex-1">
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors text-card-foreground">
+                          {category.name}
+                        </CardTitle>
+                        <CardDescription className="mt-1 text-muted-foreground">
+                          {category.count.toLocaleString()} businesses
+                        </CardDescription>
                       </div>
                     </div>
-
-                    <div>
-                      <h4 className="font-medium text-card-foreground mb-2">
-                        {t("categories.subcategories")}
-                      </h4>
-                      <div className="flex flex-wrap gap-1">
-                        {category.subcategories
-                          .slice(0, 4)
-                          .map((sub, index) => (
-                            <Badge
-                              key={index}
-                              variant="outline"
-                              className="text-xs text-muted-foreground"
-                            >
-                              {sub}
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <p className="text-muted-foreground text-sm">
+                        {category.description}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <StarRating rating={category.avgRating} />
+                        <span className="text-muted-foreground text-sm">
+                          Average rating
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-card-foreground mb-2">
+                          {t("categories.topCompanies")}
+                        </h4>
+                        <div className="space-y-1">
+                          {category.topCompanies
+                            .slice(0, 3)
+                            .map((company, index) => (
+                              <div
+                                key={index}
+                                className="text-sm text-muted-foreground flex items-center"
+                              >
+                                <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                                {company}
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-card-foreground mb-2">
+                          {t("categories.subcategories")}
+                        </h4>
+                        <div className="flex flex-wrap gap-1">
+                          {category.subcategories
+                            .slice(0, 4)
+                            .map((sub, index) => (
+                              <Badge
+                                key={index}
+                                variant="outline"
+                                className="text-xs text-muted-foreground"
+                              >
+                                {sub}
+                              </Badge>
+                            ))}
+                          {category.subcategories.length > 4 && (
+                            <Badge variant="outline" className="text-xs text-muted-foreground">
+                              {t("categories.moreSubcategories", { count: category.subcategories.length - 4 })}
                             </Badge>
-                          ))}
-                        {category.subcategories.length > 4 && (
-                          <Badge variant="outline" className="text-xs text-muted-foreground">
-                            {t("categories.moreSubcategories", { count: category.subcategories.length - 4 })}
-                          </Badge>
-                        )}
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between pt-4 border-t">
+                        <span className="text-sm text-muted-foreground">
+                          {t("categories.viewAllBusinesses")}
+                        </span>
+                        <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" />
                       </div>
                     </div>
-
-                    <div className="flex items-center justify-between pt-4 border-t">
-                      <span className="text-sm text-muted-foreground">
-                        {t("categories.viewAllBusinesses")}
-                      </span>
-                      <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" />
-                    </div>
-                  </div>
-                </CardContent>
+                  </CardContent>
+                </Card>
               </Link>
-            </Card>
-          ))}
+            );
+          })}
         </div>
 
         {/* Statistics Section */}
