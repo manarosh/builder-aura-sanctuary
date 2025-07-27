@@ -5,59 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import categoriesData from "./Categories";
-
-// Fallback data for categories (should match Categories.tsx)
-const categories = [
-  {
-    name: "Healthcare",
-    icon: "🏥",
-    description: "Medical services, healthcare providers, and wellness centers",
-    topCompanies: ["Swedish Medical Center", "Stockholm Health Clinic", "Nordic Care"],
-  },
-  {
-    name: "Legal Services",
-    icon: "⚖️",
-    description: "Legal advice, law firms, and legal representation services",
-    topCompanies: ["Nordic Law Partners", "Stockholm Legal", "Malmö Advocates"],
-  },
-  {
-    name: "Home Services",
-    icon: "🏠",
-    description: "Home improvement, maintenance, and household services",
-    topCompanies: ["Clean Home Solutions", "Fix-It Pro", "Garden Masters"],
-  },
-  {
-    name: "Restaurants",
-    icon: "🍽️",
-    description: "Dining establishments, cafes, bars, and food services",
-    topCompanies: ["Gourmet Bistro", "Nordic Kitchen", "Street Food Central"],
-  },
-  {
-    name: "Auto Services",
-    icon: "🚗",
-    description: "Automotive repair, maintenance, and vehicle services",
-    topCompanies: ["Auto Expert Stockholm", "Quick Tire Service", "Nordic Motors"],
-  },
-  {
-    name: "Beauty & Spa",
-    icon: "💅",
-    description: "Beauty treatments, spa services, and personal care",
-    topCompanies: ["Bella Beauty Salon", "Zen Spa Stockholm", "Nordic Nails"],
-  },
-  {
-    name: "Education",
-    icon: "📚",
-    description: "Educational services, training, and skill development",
-    topCompanies: ["Stockholm Language School", "Tech Academy", "Music Institute"],
-  },
-  {
-    name: "Financial Services",
-    icon: "💰",
-    description: "Banking, insurance, investments, and financial planning",
-    topCompanies: ["Nordic Finance", "Stockholm Bank", "Investment Partners"],
-  },
-];
+import { categories } from "@/data/categories";
 
 export default function Category() {
   const { category } = useParams();
