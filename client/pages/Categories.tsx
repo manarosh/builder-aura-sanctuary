@@ -223,15 +223,15 @@ export default function Categories() {
                         {t("categories.topCompanies")}
                       </h4>
                       <div className="space-y-1">
-                        {category.topCompanies
+                        {category.topCompanyKeys
                           .slice(0, 3)
-                          .map((company, index) => (
+                          .map((companyKey, index) => (
                             <div
                               key={index}
                               className="text-sm text-muted-foreground flex items-center"
                             >
                               <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                              {company}
+                              {t(companyKey)}
                             </div>
                           ))}
                       </div>
@@ -241,20 +241,20 @@ export default function Categories() {
                         {t("categories.subcategories")}
                       </h4>
                       <div className="flex flex-wrap gap-1">
-                        {category.subcategories
+                        {category.subcategoryKeys
                           .slice(0, 4)
-                          .map((sub, index) => (
+                          .map((subKey, index) => (
                             <Badge
                               key={index}
                               variant="outline"
                               className="text-xs text-muted-foreground"
                             >
-                              {t(sub)}
+                              {t(subKey)}
                             </Badge>
                           ))}
-                        {category.subcategories.length > 4 && (
+                        {category.subcategoryKeys.length > 4 && (
                           <Badge variant="outline" className="text-xs text-muted-foreground">
-                            {t("categories.moreSubcategories", { count: category.subcategories.length - 4 })}
+                            {t("categories.moreSubcategories", { count: category.subcategoryKeys.length - 4 })}
                           </Badge>
                         )}
                       </div>
