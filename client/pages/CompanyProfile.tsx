@@ -191,7 +191,7 @@ export default function CompanyProfile() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -213,7 +213,7 @@ export default function CompanyProfile() {
         </div>
 
         {/* Company Header */}
-        <Card className="mb-8">
+        <Card className="mb-8 bg-card text-card-foreground border border-card">
           <CardContent className="p-8">
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="flex-1">
@@ -346,7 +346,7 @@ export default function CompanyProfile() {
                 </div>
 
                 {/* Rating Summary */}
-                <Card>
+                <Card className="bg-card text-card-foreground border border-card">
                   <CardContent className="p-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="text-center">
@@ -387,7 +387,7 @@ export default function CompanyProfile() {
                 {/* Reviews List */}
                 <div className="space-y-6">
                   {reviews.map((review) => (
-                    <Card key={review.id}>
+                    <Card key={review.id} className="bg-card text-card-foreground border border-card">
                       <CardContent className="p-6">
                         <div className="flex items-start space-x-4">
                           <Avatar>
@@ -465,7 +465,7 @@ export default function CompanyProfile() {
               </TabsContent>
 
               <TabsContent value="insights" className="space-y-6">
-                <Card>
+                <Card className="bg-card text-card-foreground border border-card">
                   <CardHeader>
                     <CardTitle className="flex items-center text-card-foreground">
                       <TrendingUp className="w-5 h-5 mr-2" />
@@ -575,7 +575,7 @@ export default function CompanyProfile() {
               </TabsContent>
 
               <TabsContent value="photos">
-                <Card>
+                <Card className="bg-card text-card-foreground border border-card">
                   <CardHeader>
                     <CardTitle className="text-card-foreground">Photos & Media</CardTitle>
                     {/* Consider making this translatable if needed */}
@@ -604,7 +604,7 @@ export default function CompanyProfile() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Contact Info */}
-            <Card>
+            <Card className="bg-card text-card-foreground border border-card">
               <CardHeader>
                 <CardTitle className="text-card-foreground">Contact Information</CardTitle>
                 {/* Consider making this translatable if needed */}
@@ -635,7 +635,7 @@ export default function CompanyProfile() {
             </Card>
 
             {/* Hours */}
-            <Card>
+            <Card className="bg-card text-card-foreground border border-card">
               <CardHeader>
                 <CardTitle className="text-card-foreground">Business Hours</CardTitle>
                 {/* Consider making this translatable if needed */}
@@ -663,7 +663,7 @@ export default function CompanyProfile() {
             </Card>
 
             {/* Company Stats */}
-            <Card>
+            <Card className="bg-card text-card-foreground border border-card">
               <CardHeader>
                 <CardTitle className="text-card-foreground">Company Details</CardTitle>
                 {/* Consider making this translatable if needed */}
