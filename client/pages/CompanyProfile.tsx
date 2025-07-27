@@ -220,7 +220,7 @@ export default function CompanyProfile() {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <div className="flex items-center space-x-3 mb-2">
-                      <h1 className="text-3xl font-bold text-gray-900">
+                      <h1 className="text-3xl font-bold text-card-foreground">
                         {companyData.name}
                       </h1>
                       {companyData.verified && (
@@ -233,7 +233,7 @@ export default function CompanyProfile() {
                       )}
                       <TrustBadge level={companyData.trustLevel} />
                     </div>
-                    <p className="text-lg text-gray-600 mb-4">
+                    <p className="text-lg text-muted-foreground mb-4">
                       {companyData.category} • {companyData.subcategory}
                     </p>
                   </div>
@@ -256,7 +256,7 @@ export default function CompanyProfile() {
                     <span className="text-2xl font-bold">
                       {companyData.rating}
                     </span>
-                    <span className="text-gray-600">
+                    <span className="text-muted-foreground">
                       ({companyData.reviewCount.toLocaleString()}) {t("companyProfile.reviews")}
                     </span>
                   </div>
@@ -266,18 +266,18 @@ export default function CompanyProfile() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 mb-6">{companyData.description}</p>
+                <p className="text-muted-foreground mb-6">{companyData.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {companyData.services.map((service) => (
-                    <Badge key={service} variant="secondary">
+                    <Badge key={service} variant="secondary" className="text-muted-foreground">
                       {service}
                     </Badge>
                   ))}
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Write a Review
                   </Button>
@@ -358,7 +358,7 @@ export default function CompanyProfile() {
                           size="lg"
                           showNumber={false}
                         />
-                        <p className="text-gray-600 mt-2">
+                        <p className="text-muted-foreground mt-2">
                           {companyData.reviewCount.toLocaleString()} {t("companyProfile.reviews")}
                         </p>
                       </div>
@@ -374,7 +374,7 @@ export default function CompanyProfile() {
                               value={item.percentage}
                               className="flex-1"
                             />
-                            <span className="text-sm text-gray-600 w-12">
+                            <span className="text-sm text-muted-foreground w-12">
                               {item.count}
                             </span>
                           </div>
@@ -415,17 +415,17 @@ export default function CompanyProfile() {
                                 </div>
                                 <div className="flex items-center space-x-2 mt-1">
                                   <StarRating rating={review.rating} />
-                                  <span className="text-sm text-gray-600">
+                                  <span className="text-sm text-muted-foreground">
                                     • {review.experience}
                                   </span>
                                 </div>
                               </div>
-                              <span className="text-sm text-gray-500">
+                              <span className="text-sm text-muted-foreground">
                                 {review.date}
                               </span>
                             </div>
 
-                            <p className="text-gray-700 mb-4">{review.text}</p>
+                            <p className="text-muted-foreground mb-4">{review.text}</p>
 
                             {review.images.length > 0 && (
                               <div className="flex space-x-2 mb-4">
@@ -467,11 +467,11 @@ export default function CompanyProfile() {
               <TabsContent value="insights" className="space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center">
+                    <CardTitle className="flex items-center text-card-foreground">
                       <TrendingUp className="w-5 h-5 mr-2" />
                       {t("companyProfile.aiAnalysis")}
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-muted-foreground">
                       {t("companyProfile.aiInsightsDescription", { count: companyData.reviewCount })}
                     </CardDescription>
                   </CardHeader>
@@ -479,7 +479,7 @@ export default function CompanyProfile() {
                     <div>
                       <h4 className="font-semibold mb-3">Summary</h4>
                       {/* Consider making this translatable if needed */}
-                      <p className="text-gray-700">{aiInsights.summary}</p>
+                      <p className="text-muted-foreground">{aiInsights.summary}</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
@@ -493,7 +493,7 @@ export default function CompanyProfile() {
                               key={keyword.word}
                               className="flex items-center justify-between"
                             >
-                              <span className="text-sm">{keyword.word}</span>
+                              <span className="text-sm text-muted-foreground">{keyword.word}</span>
                               <Badge
                                 variant="secondary"
                                 className="bg-green-100 text-green-800"
@@ -515,7 +515,7 @@ export default function CompanyProfile() {
                               key={keyword.word}
                               className="flex items-center justify-between"
                             >
-                              <span className="text-sm">{keyword.word}</span>
+                              <span className="text-sm text-muted-foreground">{keyword.word}</span>
                               <Badge
                                 variant="secondary"
                                 className="bg-red-100 text-red-800"
@@ -533,7 +533,7 @@ export default function CompanyProfile() {
                       {/* Consider making this translatable if needed */}
                       <div className="space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="text-sm">Positive</span>
+                          <span className="text-sm text-muted-foreground">Positive</span>
                           <div className="flex items-center space-x-2">
                             <Progress
                               value={aiInsights.sentiment.positive}
@@ -545,7 +545,7 @@ export default function CompanyProfile() {
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm">Neutral</span>
+                          <span className="text-sm text-muted-foreground">Neutral</span>
                           <div className="flex items-center space-x-2">
                             <Progress
                               value={aiInsights.sentiment.neutral}
@@ -557,7 +557,7 @@ export default function CompanyProfile() {
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span className="text-sm">Negative</span>
+                          <span className="text-sm text-muted-foreground">Negative</span>
                           <div className="flex items-center space-x-2">
                             <Progress
                               value={aiInsights.sentiment.negative}
@@ -577,9 +577,9 @@ export default function CompanyProfile() {
               <TabsContent value="photos">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Photos & Media</CardTitle>
+                    <CardTitle className="text-card-foreground">Photos & Media</CardTitle>
                     {/* Consider making this translatable if needed */}
-                    <CardDescription>
+                    <CardDescription className="text-muted-foreground">
                       {t("companyProfile.photosDescription")}
                     </CardDescription>
                   </CardHeader>
@@ -606,7 +606,7 @@ export default function CompanyProfile() {
             {/* Contact Info */}
             <Card>
               <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+                <CardTitle className="text-card-foreground">Contact Information</CardTitle>
                 {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent className="space-y-4">
@@ -637,7 +637,7 @@ export default function CompanyProfile() {
             {/* Hours */}
             <Card>
               <CardHeader>
-                <CardTitle>Business Hours</CardTitle>
+                <CardTitle className="text-card-foreground">Business Hours</CardTitle>
                 {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent>
@@ -665,22 +665,22 @@ export default function CompanyProfile() {
             {/* Company Stats */}
             <Card>
               <CardHeader>
-                <CardTitle>Company Details</CardTitle>
+                <CardTitle className="text-card-foreground">Company Details</CardTitle>
                 {/* Consider making this translatable if needed */}
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Founded</span>
+                  <span className="text-muted-foreground">Founded</span>
                   {/* Consider making this translatable if needed */}
                   <span className="font-medium">{companyData.founded}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Employees</span>
+                  <span className="text-muted-foreground">Employees</span>
                   {/* Consider making this translatable if needed */}
                   <span className="font-medium">{companyData.employees}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Trust Level</span>
+                  <span className="text-muted-foreground">Trust Level</span>
                   {/* Consider making this translatable if needed */}
                   <TrustBadge level={companyData.trustLevel} />
                 </div>
