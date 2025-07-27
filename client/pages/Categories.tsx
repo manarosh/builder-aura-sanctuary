@@ -294,10 +294,10 @@ export default function Categories() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-4xl font-bold text-card-foreground mb-4">
             {t("categories.title")}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             {t("categories.description")}
           </p>
 
@@ -344,7 +344,7 @@ export default function Categories() {
 
         {/* Popular Searches */}
         <div className="mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <h3 className="text-lg font-semibold text-card-foreground mb-4">
             {t("categories.popularSearches")}
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -364,7 +364,7 @@ export default function Categories() {
         {/* Filters and Sort */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
           <div>
-            <p className="text-gray-600">
+            <p className="text-muted-foreground font-medium">
               {t("categories.showingResults", { count: sortedCategories.length })}
             </p>
           </div>
@@ -397,10 +397,10 @@ export default function Categories() {
                   <div className="flex items-center space-x-4">
                     <div className="text-5xl">{category.icon}</div>
                     <div className="flex-1">
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors text-card-foreground">
                         {category.name}
                       </CardTitle>
-                      <CardDescription className="mt-1">
+                      <CardDescription className="mt-1 text-muted-foreground">
                         {category.count.toLocaleString()} businesses
                       </CardDescription>
                     </div>
@@ -409,19 +409,19 @@ export default function Categories() {
 
                 <CardContent>
                   <div className="space-y-4">
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-muted-foreground text-sm">
                       {category.description}
                     </p>
 
                     <div className="flex items-center justify-between">
                       <StarRating rating={category.avgRating} />
-                      <span className="text-gray-600 text-sm">
+                      <span className="text-muted-foreground text-sm">
                         Average rating
                       </span>
                     </div>
 
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">
+                      <h4 className="font-medium text-card-foreground mb-2">
                         {t("categories.topCompanies")}
                       </h4>
                       <div className="space-y-1">
@@ -430,7 +430,7 @@ export default function Categories() {
                           .map((company, index) => (
                             <div
                               key={index}
-                              className="text-sm text-gray-600 flex items-center"
+                              className="text-sm text-muted-foreground flex items-center"
                             >
                               <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
                               {company}
@@ -440,7 +440,7 @@ export default function Categories() {
                     </div>
 
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">
+                      <h4 className="font-medium text-card-foreground mb-2">
                         {t("categories.subcategories")}
                       </h4>
                       <div className="flex flex-wrap gap-1">
@@ -450,13 +450,13 @@ export default function Categories() {
                             <Badge
                               key={index}
                               variant="outline"
-                              className="text-xs"
+                              className="text-xs text-muted-foreground"
                             >
                               {sub}
                             </Badge>
                           ))}
                         {category.subcategories.length > 4 && (
-                          <Badge variant="outline" className="text-xs">
+                          <Badge variant="outline" className="text-xs text-muted-foreground">
                             {t("categories.moreSubcategories", { count: category.subcategories.length - 4 })}
                           </Badge>
                         )}
@@ -464,7 +464,7 @@ export default function Categories() {
                     </div>
 
                     <div className="flex items-center justify-between pt-4 border-t">
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-muted-foreground">
                         {t("categories.viewAllBusinesses")}
                       </span>
                       <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" />
@@ -479,10 +479,10 @@ export default function Categories() {
         {/* Statistics Section */}
         <div className="mt-16 bg-card text-card-foreground border border-card rounded-lg shadow-soft p-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold text-card-foreground mb-4">
               {t("categories.platformStats")}
             </h2>
-            <p className="text-gray-600">
+            <p className="text-muted-foreground">
               {/* Consider making this translatable if needed */}
             </p>
           </div>
@@ -492,46 +492,46 @@ export default function Categories() {
               <div className="flex items-center justify-center mb-2">
                 <Building2 className="w-8 h-8 text-primary" />
               </div>
-              <div className="text-3xl font-bold text-gray-900">
+              <div className="text-3xl font-bold text-card-foreground">
                 {categories
                   .reduce((sum, cat) => sum + cat.count, 0)
                   .toLocaleString()}
               </div>
-              <div className="text-sm text-gray-600">Total Businesses</div>
+              <div className="text-sm text-muted-foreground">Total Businesses</div>
             </div>
 
             <div className="text-center">
               <div className="flex items-center justify-center mb-2">
                 <Users className="w-8 h-8 text-primary" />
               </div>
-              <div className="text-3xl font-bold text-gray-900">2.1M+</div>
-              <div className="text-sm text-gray-600">Customer Reviews</div>
+              <div className="text-3xl font-bold text-card-foreground">2.1M+</div>
+              <div className="text-sm text-muted-foreground">Customer Reviews</div>
             </div>
 
             <div className="text-center">
               <div className="flex items-center justify-center mb-2">
                 <Star className="w-8 h-8 text-primary" />
               </div>
-              <div className="text-3xl font-bold text-gray-900">4.5★</div>
-              <div className="text-sm text-gray-600">Average Rating</div>
+              <div className="text-3xl font-bold text-card-foreground">4.5★</div>
+              <div className="text-sm text-muted-foreground">Average Rating</div>
             </div>
 
             <div className="text-center">
               <div className="flex items-center justify-center mb-2">
                 <TrendingUp className="w-8 h-8 text-primary" />
               </div>
-              <div className="text-3xl font-bold text-gray-900">98%</div>
-              <div className="text-sm text-gray-600">Customer Satisfaction</div>
+              <div className="text-3xl font-bold text-card-foreground">98%</div>
+              <div className="text-sm text-muted-foreground">Customer Satisfaction</div>
             </div>
           </div>
         </div>
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-card-foreground mb-4">
             {t("categories.cantFind")}
           </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             {t("categories.cantFindDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
