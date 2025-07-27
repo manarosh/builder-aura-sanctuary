@@ -161,10 +161,10 @@ export default function About() {
             <Badge className="mb-4 bg-primary/10 text-primary animate-fade-in">
               {t("about.hero.badge")}
             </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-card-foreground mb-6 leading-tight">
               {t("about.hero.title")}<span className="gradient-text block">{t("about.hero.titleHighlight")}</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed px-4 sm:px-0">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed px-4 sm:px-0">
               {t("about.hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
@@ -195,31 +195,31 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground mb-6">
                 {t("about.mission.title")}
               </h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground mb-6 leading-relaxed">
                 {t("about.mission.description1")}
               </p>
-              <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed">
                 {t("about.mission.description2")}
               </p>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm sm:text-base">
+                  <span className="text-muted-foreground text-sm sm:text-base">
                     {t("about.mission.feature1")}
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm sm:text-base">
+                  <span className="text-muted-foreground text-sm sm:text-base">
                     {t("about.mission.feature2")}
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm sm:text-base">
+                  <span className="text-muted-foreground text-sm sm:text-base">
                     {t("about.mission.feature3")}
                   </span>
                 </div>
@@ -237,13 +237,13 @@ export default function About() {
                     <div className="text-primary mb-3 sm:mb-4 flex justify-center">
                       {stat.icon}
                     </div>
-                    <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
+                    <div className="text-xl sm:text-2xl font-bold text-card-foreground mb-1">
                       {stat.number}
                     </div>
-                    <div className="text-xs sm:text-sm font-medium text-gray-900 mb-2 leading-tight">
+                    <div className="text-xs sm:text-sm font-medium text-card-foreground mb-2 leading-tight">
                       {stat.label}
                     </div>
-                    <div className="text-xs text-gray-600 leading-tight">
+                    <div className="text-xs text-muted-foreground leading-tight">
                       {stat.description}
                     </div>
                   </CardContent>
@@ -258,10 +258,10 @@ export default function About() {
       <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground mb-4">
               {t("about.values.title")}
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               {t("about.values.description")}
             </p>
           </div>
@@ -277,10 +277,10 @@ export default function About() {
                   <div className="creative-icon mx-auto mb-4 text-primary">
                     {value.icon}
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg sm:text-xl font-semibold text-card-foreground mb-3 group-hover:text-primary transition-colors">
                     {value.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {value.description}
                   </p>
                 </CardContent>
@@ -294,10 +294,10 @@ export default function About() {
       <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground mb-4">
               {t("about.team.title")}
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               {t("about.team.description")}
             </p>
           </div>
@@ -317,13 +317,13 @@ export default function About() {
                       className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105"
                     />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg sm:text-xl font-semibold text-card-foreground mb-1 group-hover:text-primary transition-colors">
                     {member.name}
                   </h3>
                   <p className="text-primary font-medium mb-3 text-sm sm:text-base">
                     {member.role}
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {member.bio}
                   </p>
                 </CardContent>
@@ -337,10 +337,10 @@ export default function About() {
       <section className="py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground mb-4">
               {t("about.journey.title")}
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               {t("about.journey.description")}
             </p>
           </div>
@@ -355,10 +355,10 @@ export default function About() {
               >
                 <CardContent className="p-6">
                   <Badge className="mb-4">{milestone.year}</Badge>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-lg sm:text-xl font-semibold text-card-foreground mb-3">
                     {milestone.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {milestone.description}
                   </p>
                 </CardContent>
@@ -384,10 +384,10 @@ export default function About() {
                     >
                       <CardContent className="p-8">
                         <Badge className="mb-4">{milestone.year}</Badge>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                        <h3 className="text-xl font-semibold text-card-foreground mb-3">
                           {milestone.title}
                         </h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed">
                           {milestone.description}
                         </p>
                       </CardContent>

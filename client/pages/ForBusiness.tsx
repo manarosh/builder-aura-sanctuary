@@ -166,10 +166,10 @@ export default function ForBusiness() {
               <Badge className="mb-4 bg-primary/10 text-primary">
                 {t("forBusiness.hero.badge")}
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-card-foreground mb-6">
                 {t("forBusiness.hero.title")}<span className="text-primary block">{t("forBusiness.hero.titleHighlight")}</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-muted-foreground mb-8">
                 {t("forBusiness.hero.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -180,7 +180,7 @@ export default function ForBusiness() {
                   {t("forBusiness.hero.ctaSecondary")}
                 </Button>
               </div>
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-sm text-muted-foreground mt-4">
                 {t("forBusiness.hero.note")}
               </p>
             </div>
@@ -194,10 +194,10 @@ export default function ForBusiness() {
                         <TrendingUp className="w-6 h-6 text-green-600" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-gray-900">
+                        <div className="text-2xl font-bold text-card-foreground">
                           +127%
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-muted-foreground">
                           Average customer growth
                         </div>
                       </div>
@@ -207,10 +207,10 @@ export default function ForBusiness() {
                         <Star className="w-6 h-6 text-blue-600" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-gray-900">
+                        <div className="text-2xl font-bold text-card-foreground">
                           4.8★
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-muted-foreground">
                           Average business rating
                         </div>
                       </div>
@@ -220,10 +220,10 @@ export default function ForBusiness() {
                         <Users className="w-6 h-6 text-purple-600" />
                       </div>
                       <div>
-                        <div className="text-2xl font-bold text-gray-900">
+                        <div className="text-2xl font-bold text-card-foreground">
                           2.3M
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-muted-foreground">
                           Monthly platform visitors
                         </div>
                       </div>
@@ -240,10 +240,10 @@ export default function ForBusiness() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-card-foreground mb-4">
               Everything You Need to Succeed
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Powerful tools to help you manage your online reputation and grow
               your business
             </p>
@@ -259,10 +259,10 @@ export default function ForBusiness() {
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-card-foreground mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -274,10 +274,10 @@ export default function ForBusiness() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-card-foreground mb-4">
               Simple, Transparent Pricing
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-muted-foreground">
               Choose the plan that fits your business needs
             </p>
           </div>
@@ -307,7 +307,7 @@ export default function ForBusiness() {
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center">
                         <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                        <span className="text-gray-600">{feature}</span>
+                        <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -328,10 +328,10 @@ export default function ForBusiness() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-card-foreground mb-4">
               What Our Customers Say
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-muted-foreground">
               Real stories from businesses that grew with ReviewHub
             </p>
           </div>
@@ -341,7 +341,7 @@ export default function ForBusiness() {
               <Card key={index}>
                 <CardContent className="p-6">
                   <StarRating rating={testimonial.rating} />
-                  <p className="text-gray-700 mt-4 mb-6">
+                  <p className="text-muted-foreground mt-4 mb-6">
                     "{testimonial.text}"
                   </p>
                   <div className="flex items-center">
@@ -351,10 +351,10 @@ export default function ForBusiness() {
                       className="w-10 h-10 rounded-full mr-3"
                     />
                     <div>
-                      <div className="font-semibold text-gray-900">
+                      <div className="font-semibold text-card-foreground">
                         {testimonial.name}
                       </div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-muted-foreground">
                         {testimonial.company}
                       </div>
                     </div>
@@ -370,10 +370,10 @@ export default function ForBusiness() {
       <section className="py-16 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-card-foreground mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-muted-foreground">
               Contact us today and see how ReviewHub can help grow your business
             </p>
           </div>
@@ -382,31 +382,31 @@ export default function ForBusiness() {
             <CardContent className="p-8">
               <form className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-card-foreground mb-2">
                     Business Name
                   </label>
                   <Input placeholder="Your business name" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-card-foreground mb-2">
                     Contact Name
                   </label>
                   <Input placeholder="Your full name" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-card-foreground mb-2">
                     Email
                   </label>
                   <Input type="email" placeholder="your@email.com" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-card-foreground mb-2">
                     Phone
                   </label>
                   <Input placeholder="+46 XX XXX XX XX" />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-card-foreground mb-2">
                     Message
                   </label>
                   <Textarea
